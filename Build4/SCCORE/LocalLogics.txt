@@ -1,0 +1,4 @@
+// User's project specific logic models for small logic elements,similar to those found in C:\Flynn Systems Corp\onTAP\Logics.txt file, may be placed here.
+// onTAP can rewrite Logics.txt when updating onTAP so LocalLogics.txt is intended to prevent user logic models from being overwritten during updates if the user places models in Logics.txt.
+// Logic models sent to support@flynn.com will be checked and added to Logics.txt for safe updates and general use
+// Projects must be restarted after changing the LocalLogics.txt or Logics.txt files. 

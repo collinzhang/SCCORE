@@ -1,0 +1,24 @@
+ //  
+ // Boundary Scan Test Control Program     Wed Aug 12 09:02:24 2020  
+ //  
+ test_sequence = INTERCONNECT; 
+cluster_test_info = IC2,DDR3_2GB_128mx16_MPR_test,-1;
+ test_process = AllowSelfCapture; 
+ alias = IC = VYBRID_364_F; 
+ logics = C:\Flynn Systems Corp\onTAP\logics\jtag; 
+ netlist = F:\bsdapps\WELCO\Debug\SCCORE_method_1\SCCORE_method_1\SCCORE\SCCORE.xnf; 
+ netlist_file = F:\bsdapps\WELCO\Debug\SCCORE_method_1\SCCORE_method_1\SCCORE\SCCORE_NETS_9011.xnf; 
+ dtsfile = F:\bsdapps\WELCO\Debug\SCCORE_method_1\SCCORE_method_1\SCCORE\test_files_for_deployment\IC2_DDR3L.dts; 
+ SVF_test_file = F:\bsdapps\WELCO\Debug\SCCORE_method_1\SCCORE_method_1\SCCORE\test_files_for_deployment\IC2_DDR3L.svf;  // Test in Serial Vector Format 
+ ATE_output_file = F:\bsdapps\WELCO\Debug\SCCORE_method_1\SCCORE_method_1\SCCORE\test_files_for_deployment\IC2_DDR3L.ate;  // Test in JEDEC Vector Format 
+
+ begin, IC1,  IC, TEST, CHAIN; 
+
+   // Chip-to-chip TAP connections for IC1 follow. 
+    // IC1.K2(K2) joins 
+    // IC1.K1 joins 
+    // IC1.JTCLK(K4) joins 
+    // IC1.JTMS(L1) joins 
+   //  ...NO TAP connections for IC1. 
+ end; 
+end_netlist; 

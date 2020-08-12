@@ -1,0 +1,6 @@
+// LIST of ALIAS Names that match Net locations to BSDL file names 
+// PROCEDURE: 1> Enter alias statement in syntax format shown below.
+//            2> Right click in this view and save current document.
+//            3> Select menu items 'BoundaryScan' => 'Reload Selected Project'.
+// Syntax is: alias = circuit_location_type = BSDL entity; 
+

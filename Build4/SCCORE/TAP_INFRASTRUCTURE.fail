@@ -1,0 +1,46 @@
+/////////////  List of Test Failures for C:\Users\TDE\OneDrive\Desktop\SCCORE_Build3\trunk\Build4\SCCORE\TAP_INFRASTRUCTURE.SVF  
+/////////////  onTAP Build 4790 ///////////// 
+/////////////  Wed Aug 12 22:21:06 2020
+
+///////////// 
+IDCODE bit 1 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 5 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 6 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 7 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 8 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 9 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 10 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 11 at IC1 failed. (Wrong Manufacturer's ID)
+IDCODE bit 13 at IC1 failed. (wrong part number)
+IDCODE bit 14 at IC1 failed. (wrong part number)
+IDCODE bit 15 at IC1 failed. (wrong part number)
+IDCODE bit 16 at IC1 failed. (wrong part number)
+IDCODE bit 17 at IC1 failed. (wrong part number)
+IDCODE bit 18 at IC1 failed. (wrong part number)
+IDCODE bit 19 at IC1 failed. (wrong part number)
+IDCODE bit 20 at IC1 failed. (wrong part number)
+IDCODE bit 21 at IC1 failed. (wrong part number)
+IDCODE bit 22 at IC1 failed. (wrong part number)
+IDCODE bit 25 at IC1 failed. (wrong part number)
+IDCODE bit 26 at IC1 failed. (wrong part number)
+IDCODE bit 29 at IC1 failed.  
+IDCODE bit 30 at IC1 failed.  
+IDCODE bit 31 at IC1 failed.  
+  
+IDCODE MEASURED and EXPECTED VALUES for each JTAG chain from TDI to TDO 
+  
+TDI =>  
+ A    IC1          MEASURED: 11111111111111111111111111111111 
+ A    IC1          EXPECTED: 00011001100000000001000000011101 
+*** fails:                   ^^^  ^^  ^^^^^^^^^^ ^^^^^^^   ^  
+
+=> TDO  
+  
+HEX IDCODE MEASURED and EXPECTED VALUES for each JTAG chain from TDI to TDO 
+  
+TDI =>  
+ A    IC1          MEASURED: FFFFFFFF 
+ A    IC1          EXPECTED: 1980101D 
+*** fails:                   ^^^^^^^^ 
+
+=> TDO  

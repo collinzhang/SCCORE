@@ -1,0 +1,58 @@
+// onTAP Build 4790 
+FAIL Wed Aug 12 22:21:06 2020
+ 
+
+ Ran 2 boundary register test vectors 
+
+TEST SUMMARY for tap_infrastructure.svf / Wed Aug 12 08:48:10 2020  / onTAP Build  
+----------------------------------------------------------------------------------------------
+Boundary Scan Chains 
+ 
+   Chain    Device                Type                  Test  
+   -----    ------                -------------         ------------
+   A        IC1                   VYBRID_364_F          Interconnect 
+ 
+ TAP TESTs                     Vector    PASS/FAIL 
+----------------------------   -------   --------- 
+ Instruction capture.........             NO-TEST
+ IR register length .........             NO-TEST
+ Bypass register.............             NO-TEST
+ IDCODE......................             FAIL
+ Boundary register length....             NO-TEST
+ 
+---------------------------- I/O Scan Pin Test Report  ----------------------------------------- 
+ 
+ The pin test report shows test vector scan drive/sense and pass/fail activity at 
+ each scan pin during the test. In the vectors ( V numbers represent separate scans):
+          '0' indicates a scan pin driving low at the end of a scan vector. 
+          '1' indicates a scan pin driving high at the end of a scan vector. 
+          'L' indicates a scan pin capturing a passing low value at the beginning of a scan vector. 
+          'H' indicates a scan pin capturing a passing high value at the beginning of a scan vector. 
+          'D' indicates a scan pin capturing a failing low value at the beginning of a scan vector. 
+          'U' indicates a scan pin capturing a failing high value at the beginning of a scan vector. 
+          'd' indicates a scan pin capture low(down) during Mid State shorts test when the corresponding net is not being driven. 
+          'u' indicates a scan pin capture high(up) during Mid State shorts test when the corresponding net is not being driven. 
+                                                                                                    
+ 
+------------------------------------------------------------------------------------------ 
+ 
+                                                          p p  
+                                                          u u s 
+                                                        o l l h 
+                                                        p l l o                                                                 |  
+                                      P                 e     r  |
+                                      /                 n u d t   
+Nets & Pins                           F  GUARDS         s p n s  V0   V1   V2   
+------------------------------------- -  -------------- -------- ---------------
+ 
+                                                                 
+
+TOTAL FAILING PINS:    
+-------------------------------------------------------------------------
+
+TEST COVERAGE REPORT:    
+ OPENS TESTED = 0.0 percent: 0 out of 0 total scannable pins. 
+ SHORTS TESTED = 0.0 percent: 0 out of 0 total scannable nets. 
+ PULLUP RESISTORS TESTED = 0 
+ PULLDOWN RESISTORS TESTED = 0 
+ STUCK-ATS TESTED = 0.0 percent: 0 out of 0 scan pins.

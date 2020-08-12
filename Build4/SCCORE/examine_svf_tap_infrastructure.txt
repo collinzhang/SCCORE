@@ -1,0 +1,17 @@
+
+************ Pin Test Report  ********************
+
+ The Pin Test Report is best viewed in an editor, such as TextPad, that can split the screen
+ both horizontally and vertically.
+ Using the splitter controls, fix the net and pin names on the left side of the
+ screen and the vector numbers at the top of the screen. 
+ Using the scroll controls, pin values appear in a spreadsheet format from vector to vector.
+ 0's and 1's indicate values driven from pins.
+ L's and H's indicate values expected to be captured by pins.
+ ^'s identify failing pins if a test has been run.
+ Errors may indicate conflicting values driven onto a net in one vector.
+
+****************************************************
+
+Nets                                  V1   V2   
+

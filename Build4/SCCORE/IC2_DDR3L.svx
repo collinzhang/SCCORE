@@ -1,0 +1,74 @@
+Diagnostics 1 , Test Mode IDCODE ,Chain A 
+/// format is: a:bit position; b:cell number; c:pin; d:netname; e:control cell; f:cell func; g:message; h:bypass; i:tri_enable
+/// format is: j:boundary_register_length; k:IDCODE_INFO; l:instruction_capture; m:instruction_length; n:device; o:cluster_pin; z:do_nothing; w:differential_pin
+/// format is: p:cluster_pin_name; r:EXTERNAL cluster_pin_name; t:capacitive_coupling; q:VCC | GND; s:non_scan_pins; u:consolidated_net_name
+a:0; c:IC1.K1; k:IDCODE,bit=0; 
+a:1; c:IC1.K1; k:IDCODE,bit=1,manuf_bit=0,Manuf=00000001110,; 
+a:2; c:IC1.K1; k:IDCODE,bit=2,manuf_bit=1,Manuf=00000001110,; 
+a:3; c:IC1.K1; k:IDCODE,bit=3,manuf_bit=2,Manuf=00000001110,; 
+a:4; c:IC1.K1; k:IDCODE,bit=4,manuf_bit=3,Manuf=00000001110,; 
+a:5; c:IC1.K1; k:IDCODE,bit=5,manuf_bit=4,Manuf=00000001110,; 
+a:6; c:IC1.K1; k:IDCODE,bit=6,manuf_bit=5,Manuf=00000001110,; 
+a:7; c:IC1.K1; k:IDCODE,bit=7,manuf_bit=6,Manuf=00000001110,; 
+a:8; c:IC1.K1; k:IDCODE,bit=8,manuf_bit=7,Manuf=00000001110,; 
+a:9; c:IC1.K1; k:IDCODE,bit=9,manuf_bit=8,Manuf=00000001110,; 
+a:10; c:IC1.K1; k:IDCODE,bit=10,manuf_bit=9,Manuf=00000001110,; 
+a:11; c:IC1.K1; k:IDCODE,bit=11,manuf_bit=10,Manuf=00000001110,; 
+a:12; c:IC1.K1; k:IDCODE,bit=12,part_number_bit=0,PartNumber=1001100000000001,; 
+a:13; c:IC1.K1; k:IDCODE,bit=13,part_number_bit=1,PartNumber=1001100000000001,; 
+a:14; c:IC1.K1; k:IDCODE,bit=14,part_number_bit=2,PartNumber=1001100000000001,; 
+a:15; c:IC1.K1; k:IDCODE,bit=15,part_number_bit=3,PartNumber=1001100000000001,; 
+a:16; c:IC1.K1; k:IDCODE,bit=16,part_number_bit=4,PartNumber=1001100000000001,; 
+a:17; c:IC1.K1; k:IDCODE,bit=17,part_number_bit=5,PartNumber=1001100000000001,; 
+a:18; c:IC1.K1; k:IDCODE,bit=18,part_number_bit=6,PartNumber=1001100000000001,; 
+a:19; c:IC1.K1; k:IDCODE,bit=19,part_number_bit=7,PartNumber=1001100000000001,; 
+a:20; c:IC1.K1; k:IDCODE,bit=20,part_number_bit=8,PartNumber=1001100000000001,; 
+a:21; c:IC1.K1; k:IDCODE,bit=21,part_number_bit=9,PartNumber=1001100000000001,; 
+a:22; c:IC1.K1; k:IDCODE,bit=22,part_number_bit=10,PartNumber=1001100000000001,; 
+a:23; c:IC1.K1; k:IDCODE,bit=23,part_number_bit=11,PartNumber=1001100000000001,; 
+a:24; c:IC1.K1; k:IDCODE,bit=24,part_number_bit=12,PartNumber=1001100000000001,; 
+a:25; c:IC1.K1; k:IDCODE,bit=25,part_number_bit=13,PartNumber=1001100000000001,; 
+a:26; c:IC1.K1; k:IDCODE,bit=26,part_number_bit=14,PartNumber=1001100000000001,; 
+a:27; c:IC1.K1; k:IDCODE,bit=27,part_number_bit=15,PartNumber=1001100000000001,; 
+a:28; c:IC1.K1; k:IDCODE,bit=28,version_bit=0,Version=0001,; 
+a:29; c:IC1.K1; k:IDCODE,bit=29,version_bit=1,Version=0001,; 
+a:30; c:IC1.K1; k:IDCODE,bit=30,version_bit=2,Version=0001,; 
+a:31; c:IC1.K1; k:IDCODE,bit=31,version_bit=3,Version=0001,; 
+END SDR DIAGNOSTIC VECTOR; 
+Diagnostics 2 , Test Mode CLUSTER ,Chain A 
+/// format is: a:bit position; b:cell number; c:pin; d:netname; e:control cell; f:cell func; g:message; h:bypass; i:tri_enable
+/// format is: j:boundary_register_length; k:IDCODE_INFO; l:instruction_capture; m:instruction_length; n:device; o:cluster_pin; z:do_nothing; w:differential_pin
+/// format is: p:cluster_pin_name; r:EXTERNAL cluster_pin_name; t:capacitive_coupling; q:VCC | GND; s:non_scan_pins; u:consolidated_net_name
+a:0; c:IC1.K1; k:IDCODE,bit=0; 
+a:1; c:IC1.K1; k:IDCODE,bit=1,manuf_bit=0,Manuf=00000001110,; 
+a:2; c:IC1.K1; k:IDCODE,bit=2,manuf_bit=1,Manuf=00000001110,; 
+a:3; c:IC1.K1; k:IDCODE,bit=3,manuf_bit=2,Manuf=00000001110,; 
+a:4; c:IC1.K1; k:IDCODE,bit=4,manuf_bit=3,Manuf=00000001110,; 
+a:5; c:IC1.K1; k:IDCODE,bit=5,manuf_bit=4,Manuf=00000001110,; 
+a:6; c:IC1.K1; k:IDCODE,bit=6,manuf_bit=5,Manuf=00000001110,; 
+a:7; c:IC1.K1; k:IDCODE,bit=7,manuf_bit=6,Manuf=00000001110,; 
+a:8; c:IC1.K1; k:IDCODE,bit=8,manuf_bit=7,Manuf=00000001110,; 
+a:9; c:IC1.K1; k:IDCODE,bit=9,manuf_bit=8,Manuf=00000001110,; 
+a:10; c:IC1.K1; k:IDCODE,bit=10,manuf_bit=9,Manuf=00000001110,; 
+a:11; c:IC1.K1; k:IDCODE,bit=11,manuf_bit=10,Manuf=00000001110,; 
+a:12; c:IC1.K1; k:IDCODE,bit=12,part_number_bit=0,PartNumber=1001100000000001,; 
+a:13; c:IC1.K1; k:IDCODE,bit=13,part_number_bit=1,PartNumber=1001100000000001,; 
+a:14; c:IC1.K1; k:IDCODE,bit=14,part_number_bit=2,PartNumber=1001100000000001,; 
+a:15; c:IC1.K1; k:IDCODE,bit=15,part_number_bit=3,PartNumber=1001100000000001,; 
+a:16; c:IC1.K1; k:IDCODE,bit=16,part_number_bit=4,PartNumber=1001100000000001,; 
+a:17; c:IC1.K1; k:IDCODE,bit=17,part_number_bit=5,PartNumber=1001100000000001,; 
+a:18; c:IC1.K1; k:IDCODE,bit=18,part_number_bit=6,PartNumber=1001100000000001,; 
+a:19; c:IC1.K1; k:IDCODE,bit=19,part_number_bit=7,PartNumber=1001100000000001,; 
+a:20; c:IC1.K1; k:IDCODE,bit=20,part_number_bit=8,PartNumber=1001100000000001,; 
+a:21; c:IC1.K1; k:IDCODE,bit=21,part_number_bit=9,PartNumber=1001100000000001,; 
+a:22; c:IC1.K1; k:IDCODE,bit=22,part_number_bit=10,PartNumber=1001100000000001,; 
+a:23; c:IC1.K1; k:IDCODE,bit=23,part_number_bit=11,PartNumber=1001100000000001,; 
+a:24; c:IC1.K1; k:IDCODE,bit=24,part_number_bit=12,PartNumber=1001100000000001,; 
+a:25; c:IC1.K1; k:IDCODE,bit=25,part_number_bit=13,PartNumber=1001100000000001,; 
+a:26; c:IC1.K1; k:IDCODE,bit=26,part_number_bit=14,PartNumber=1001100000000001,; 
+a:27; c:IC1.K1; k:IDCODE,bit=27,part_number_bit=15,PartNumber=1001100000000001,; 
+a:28; c:IC1.K1; k:IDCODE,bit=28,version_bit=0,Version=0001,; 
+a:29; c:IC1.K1; k:IDCODE,bit=29,version_bit=1,Version=0001,; 
+a:30; c:IC1.K1; k:IDCODE,bit=30,version_bit=2,Version=0001,; 
+a:31; c:IC1.K1; k:IDCODE,bit=31,version_bit=3,Version=0001,; 
+END SDR DIAGNOSTIC VECTOR; 

@@ -1,0 +1,2 @@
+CHAIN A
+IC1    IC                   VYBRID_364_F.bsdl         SAMPLE 

@@ -1,0 +1,2 @@
+IC1 VYBRID_364_F 
+ include_no_connect_pins = 1; 

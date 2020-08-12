@@ -1,0 +1,2 @@
+// pin count = 1424 
+// logic pin test_data scannable_pin net_name 

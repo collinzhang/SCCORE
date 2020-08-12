@@ -1,0 +1,230 @@
+/////////////  List of Test Failures for C:\Users\TDE\OneDrive\Desktop\SCCORE_method_1\SCCORE\driver.svf  
+/////////////  onTAP Build 4790 ///////////// 
+/////////////  Wed Aug 12 05:18:32 2020
+
+///////////// 
+Net DDR_DM[1] (consisting of pins  IC2.D3 IC1.G2 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DDR_DQ[0] (consisting of pins  IC2.H3 IC1.F4 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DDR_DQ[1] (consisting of pins  IC2.F7 IC1.H3 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DDR_DQ[6] (consisting of pins  IC2.H7 IC1.C3 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DDR_DQ[7] (consisting of pins  IC2.E3 IC1.G3 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DDR_DQ[10] (consisting of pins  IC2.A7 IC1.H1 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DDR_DQ[13] (consisting of pins  IC2.C8 IC1.C1 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DDR_DQ[15] (consisting of pins  IC2.A2 IC1.D2 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net nPCE2/CIF_PCLK (consisting of pins  X1.96 IC1.V15 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DCU0_B1 (consisting of pins  X1.138 IC1.W17 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DCU0_B0 (consisting of pins  X1.136 IC1.V16 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DCU0_G1 (consisting of pins  X1.142 IC1.W15 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DCU0_G0 (consisting of pins  X1.140 IC1.Y16 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DCU0_R1 (consisting of pins  X1.146 IC1.W16 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net DCU0_R0 (consisting of pins  X1.144 IC1.T16 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D0 (consisting of pins  IC3.29 IC1.D20 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D1 (consisting of pins  IC3.30 IC1.E20 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D2 (consisting of pins  IC3.31 IC1.E18 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D3 (consisting of pins  IC3.32 IC1.F16 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D4 (consisting of pins  IC3.41 IC1.F17 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D5 (consisting of pins  IC3.42 IC1.F19 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D6 (consisting of pins  IC3.43 IC1.F20 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net NAND_D7 (consisting of pins  IC3.44 IC1.G20 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net ADDRESS17 (consisting of pins  X1.186 IC1.G19 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net ADDRESS18 (consisting of pins  X1.184 IC1.G18 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net EXT_IO2 (consisting of pins  X1.127 IC1.G16 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net nEXT_CS1 (consisting of pins  X1.107 IC1.H16 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net nIOIS16 (consisting of pins  X1.104 IC1.H17 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net nPWE (consisting of pins  X1.99 IC1.H18 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Net nEXT_CS2 (consisting of pins  X1.106 IC1.J20 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Failures exceed 30. Check fail file.
+Net DCU0_B2 (consisting of pins  X1.76 IC1.J17 R88.1 ) is stuck low. 
+ Check for short to ground or stuck pin.
+Failures exceed 30. Check fail file.

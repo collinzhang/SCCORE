@@ -1,0 +1,19 @@
+/////////////  List of Test Failures for C:\Users\TDE\OneDrive\Desktop\SCCORE_Build3\trunk\Build4\SCCORE\INTERCONNECT.SVF  
+/////////////  onTAP Build 4790 ///////////// 
+/////////////  Wed Aug 12 22:24:49 2020
+
+///////////// 
+IDCODE bit 17 at IC1 failed. (wrong part number)
+IDCODE bit 19 at IC1 failed. (wrong part number)
+IDCODE bit 21 at IC1 failed. (wrong part number)
+IDCODE bit 23 at IC1 failed. (wrong part number)
+IDCODE bit 25 at IC1 failed. (wrong part number)
+IDCODE bit 27 at IC1 failed. (wrong part number)
+IDCODE bit 29 at IC1 failed.  
+IDCODE bit 31 at IC1 failed.  
+  
+IDCODE MEASURED and EXPECTED VALUES for each JTAG chain from TDI to TDO 
+  
+  
+HEX IDCODE MEASURED and EXPECTED VALUES for each JTAG chain from TDI to TDO 
+  

@@ -1,0 +1,408 @@
+TEST SUMMARY for driver.svf / Tue Aug 11 15:46:45 2020  / onTAP Build  
+----------------------------------------------------------------------------------------------
+Boundary Scan Chains 
+ 
+   Chain    Device                Type                  Test  
+   -----    ------                -------------         ------------
+   A        IC1                   VYBRID_364_F          Interconnect 
+ 
+ TAP TESTs                     Vector    PASS/FAIL 
+----------------------------   -------   --------- 
+ Instruction capture.........
+ IR register length .........
+ Bypass register.............
+ IDCODE......................
+ Boundary register length....
+ 
+---------------------------- I/O Scan Pin Test Report  ----------------------------------------- 
+ 
+ The pin test report shows test vector scan drive/sense and pass/fail activity at 
+ each scan pin during the test. In the vectors ( V numbers represent separate scans):
+          '0' indicates a scan pin driving low at the end of a scan vector. 
+          '1' indicates a scan pin driving high at the end of a scan vector. 
+          'L' indicates a scan pin capturing a passing low value at the beginning of a scan vector. 
+          'H' indicates a scan pin capturing a passing high value at the beginning of a scan vector. 
+          'D' indicates a scan pin capturing a failing low value at the beginning of a scan vector. 
+          'U' indicates a scan pin capturing a failing high value at the beginning of a scan vector. 
+          'd' indicates a scan pin capture low(down) during Mid State shorts test when the corresponding net is not being driven. 
+          'u' indicates a scan pin capture high(up) during Mid State shorts test when the corresponding net is not being driven. 
+                                                                                                    
+ 
+------------------------------------------------------------------------------------------ 
+ 
+                                                          p p  
+                                                          u u s 
+                                                        o l l h 
+                                                        p l l o                                                                 |  
+                                      P                 e     r  |-opens & bus wire vectors-|---- shorts -------------------------------------------------------------------------| 
+                                      /                 n u d t   
+Nets & Pins                           F  GUARDS         s p n s  V1   V2   V3   V4   V5   V6   V7   V8   V9   V10  V11  V12  V13  V14  V15  V16  V17  V18  V19  V20  V21  V22  
+------------------------------------- -  -------------- -------- --------------------------------------------------------------------------------------------------------------
+ 
+                                                                 
+ADDRESS16                                                        
+  IC1.T20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+ADDRESS17                                                        
+  IC1.G19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+ADDRESS18                                                        
+  IC1.G18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+ADDRESS25                                                        
+  IC1.Y6(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+BL_ON/CIF_D0                                                     
+  IC1.L4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+CAN_INT                                                          
+  IC1.E12(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B0                                                          
+  IC1.V16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B1                                                          
+  IC1.W17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B2                                                          
+  IC1.J17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B3                                                          
+  IC1.D19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B4                                                          
+  IC1.C19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B5                                                          
+  IC1.C20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B6                                                          
+  IC1.B20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_B7                                                          
+  IC1.K16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_DE                                                          
+  IC1.N20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G0                                                          
+  IC1.Y16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G1                                                          
+  IC1.W15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G2                                                          
+  IC1.L18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G3                                                          
+  IC1.L20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G4                                                          
+  IC1.K20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G5                                                          
+  IC1.K19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G6                                                          
+  IC1.K18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_G7                                                          
+  IC1.A12(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_HSYNC                                                       
+  IC1.N16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_PCLK                                                        
+  IC1.N19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R0                                                          
+  IC1.T16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R1                                                          
+  IC1.W16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R2                                                          
+  IC1.M20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R3                                                          
+  IC1.M19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R4                                                          
+  IC1.M17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R5                                                          
+  IC1.M16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R6                                                          
+  IC1.L16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_R7                                                          
+  IC1.L17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DCU0_VSYNC                                                       
+  IC1.N18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_A[0]                                                         
+  IC1.C7(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[1]                                                         
+  IC1.C11(out)                                                    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[10]                                                        
+  IC1.D7(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[11]                                                        
+  IC1.D10(out)                                                    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[12]                                                        
+  IC1.C10(out)                                                    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[13]                                                        
+  IC1.A10(out)                                                    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[14]                                                        
+  IC1.D9(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[15]                                                        
+  IC1.B10(out)                                                    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[2]                                                         
+  IC1.A8(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[3]                                                         
+  IC1.B7(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[4]                                                         
+  IC1.A6(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[5]                                                         
+  IC1.B6(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[6]                                                         
+  IC1.A9(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[7]                                                         
+  IC1.A7(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[8]                                                         
+  IC1.A11(out)                                                    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_A[9]                                                         
+  IC1.B9(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_BS[0]                                                        
+  IC1.C8(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_BS[1]                                                        
+  IC1.C9(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_BS[2]                                                        
+  IC1.D8(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_CAS#                                                         
+  IC1.B4(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_CKE                                                          
+  IC1.A5(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_CLK                                                          
+  IC1.A2(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_CS#                                                          
+  IC1.C5(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_DM[0]                                                        
+  IC1.J4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DM[1]                                                        
+  IC1.G2(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[0]                                                        
+  IC1.F4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[1]                                                        
+  IC1.H3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[10]                                                       
+  IC1.H1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[11]                                                       
+  IC1.E2(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[12]                                                       
+  IC1.G1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[13]                                                       
+  IC1.C1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[14]                                                       
+  IC1.H2(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[15]                                                       
+  IC1.D2(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[2]                                                        
+  IC1.D4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[3]                                                        
+  IC1.G4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[4]                                                        
+  IC1.F3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[5]                                                        
+  IC1.J3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[6]                                                        
+  IC1.C3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[7]                                                        
+  IC1.G3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[8]                                                        
+  IC1.J1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQ[9]                                                        
+  IC1.D1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQS[0]                                                       
+  IC1.D3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_DQS[1]                                                       
+  IC1.E1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+DDR_ODT0                                                         
+  IC1.C4(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_RAS#                                                         
+  IC1.A4(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_RESET                                                        
+  IC1.D6(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+DDR_WE#                                                          
+  IC1.C6(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+EXT_IO0/USB_ID                                                   
+  IC1.U20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+EXT_IO1                                                          
+  IC1.U18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+EXT_IO2                                                          
+  IC1.G16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+I2C_SCL                                                          
+  IC1.B14(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+I2C_SDA                                                          
+  IC1.A14(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+MMC_CD/WAKE0                                                     
+  IC1.A13(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+MMC_CLK                                                          
+  IC1.R16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+MMC_CMD                                                          
+  IC1.R17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+MMC_DAT0                                                         
+  IC1.R19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+MMC_DAT1                                                         
+  IC1.R20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+MMC_DAT2                                                         
+  IC1.P20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+MMC_DAT3                                                         
+  IC1.P18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+N040331                                                          
+  IC1.B1(out)                                                     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    
+NAND_ALE                                                         
+  IC1.E16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_BSY0                                                        
+  IC1.D16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_CE_N                                                        
+  IC1.B17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_CLE                                                         
+  IC1.E15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D0                                                          
+  IC1.D20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D1                                                          
+  IC1.E20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D2                                                          
+  IC1.E18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D3                                                          
+  IC1.F16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D4                                                          
+  IC1.F17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D5                                                          
+  IC1.F19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D6                                                          
+  IC1.F20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_D7                                                          
+  IC1.G20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_RE_N                                                        
+  IC1.U8(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+NAND_WE_N                                                        
+  IC1.A18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PBVD1/CIF_D4                                                     
+  IC1.L2(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PBVD2/CIF_D11                                                    
+  IC1.D12(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PCD/CIF_FV                                                       
+  IC1.D13(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PRDY/WAKE1                                                       
+  IC1.C13(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PRST/CIF_MCLK                                                    
+  IC1.T19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PS2_SCL1                                                         
+  IC1.C14(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PS2_SCL2/CIF_D                                                   
+  IC1.H20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PS2_SDA1                                                         
+  IC1.A15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PS2_SDA2/CIF_D9                                                  
+  IC1.B12(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PTB2_WKPU2                                                       
+  IC1.V7(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PWM_A/CIF_D7                                                     
+  IC1.N2(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+  IC1.T6(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PWM_B                                                            
+  IC1.J16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PWM_C                                                            
+  IC1.T7(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+PWM_D/CIF_D6                                                     
+  IC1.J19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+  IC1.N1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RDY                                                              
+  IC1.T8(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RDnWR                                                            
+  IC1.A16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_CLKOUT_50MHz_R                                              
+  IC1.N5(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_CRS_DV                                                      
+  IC1.P4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_MDC_R                                                       
+  IC1.T15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_MDIO_R                                                      
+  IC1.U15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_RXD0                                                        
+  IC1.P1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_RXD1                                                        
+  IC1.P3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_RXER                                                        
+  IC1.R1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_TXD0_R                                                      
+  IC1.R3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_TXD1_R                                                      
+  IC1.P2(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+RMII_TXEN_R                                                      
+  IC1.R4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SAI0_TX_BCLK                                                     
+  IC1.A19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SAI2_PTA23                                                       
+  IC1.C17(bidir)                                                      H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H     
+SAI2_RX_DATA                                                     
+  IC1.E17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SAI2_TX_BCLK                                                     
+  IC1.Y5(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SAI2_TX_DATA                                                     
+  IC1.V6(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SAI2_TX_SYNC                                                     
+  IC1.U6(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SSPFRM                                                           
+  IC1.W20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SSPRXD                                                           
+  IC1.V20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SSPSCLK                                                          
+  IC1.U17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+SSPTXD                                                           
+  IC1.V19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_CTS                                                       
+  IC1.D15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_DCD                                                       
+  IC1.D18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_DSR                                                       
+  IC1.P16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_DTR                                                       
+  IC1.B18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_RI                                                        
+  IC1.P17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_RTS                                                       
+  IC1.E13(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_RXD                                                       
+  IC1.D14(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_A_TXD                                                       
+  IC1.B15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_B_CTS                                                       
+  IC1.Y19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_B_RTS                                                       
+  IC1.V18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_B_RXD                                                       
+  IC1.Y18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_B_TXD                                                       
+  IC1.Y17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_C_RXD                                                       
+  IC1.Y8(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+UART_C_TXD                                                       
+  IC1.Y7(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+USBC_DET                                                         
+  IC1.C16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+USBH_OC                                                          
+  IC1.Y15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+USBH_PEN                                                         
+  IC1.W19(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nBATT_FAULT/SENSE                                                
+  IC1.W7(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nEXT_CS0_CAN                                                     
+  IC1.A17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nEXT_CS1                                                         
+  IC1.H16(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nEXT_CS2                                                         
+  IC1.J20(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nIOIS16                                                          
+  IC1.H17(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPCE1/CIF_LV                                                     
+  IC1.W8(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPCE2/CIF_PCLK                                                   
+  IC1.V15(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPIOR/CIF_D3                                                     
+  IC1.M3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPIOW/CIF_D2                                                     
+  IC1.M5(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPOE/CIF_D5                                                      
+  IC1.M1(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPPEN/CIF_D8                                                     
+  IC1.N4(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPREG/CIF_D1                                                     
+  IC1.L5(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPWAIT                                                           
+  IC1.L3(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPWE                                                             
+  IC1.H18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nPXCVREN                                                         
+  IC1.T18(bidir)                                                  1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+nVDD_FAULT/SENSE                                                 
+  IC1.W5(bidir)                                                   1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1   H1    
+
+TOTAL FAILING PINS:    
+-------------------------------------------------------------------------
+
+TEST COVERAGE REPORT:    
+ OPENS TESTED = 2.0 percent: 4 out of 179 total scannable pins. 
+ SHORTS TESTED = 0.0 percent: 0 out of 176 total scannable nets. 
+ PULLUP RESISTORS TESTED = 1 
+ PULLDOWN RESISTORS TESTED = 0 
+ STUCK-ATS TESTED = 84.0 percent: 151 out of 179 scan pins.

@@ -1,0 +1,24 @@
+// Options 
+ AllowSelfCapture = 1; 
+SetRetriesOnFail = 0; 
+ InterconnectComplementVectors = 1; 
+ VirtualCircuitLocation = IC2;
+ AteSelections = SVFSVF;
+ DtsBurst = -1; 
+ DblInterconShorts = 1; 
+ SuppressTestGen = 0; 
+ BaseAppName = IC2_DDR3L; 
+tck_clocks_in_rti = 0; 
+ use_extest_train = 0; 
+ NetViewTapInstructs =  U4E1=EXTEST ; 
+ OutputSwitchFactor = 1; 
+ include_no_connect_pins = 1; 
+ non_jtag_circuit_manager = 1; 
+ test_safe_circuits_only = 0; 
+ use_atg_algo = 1; 
+ include_gpio_netlist = 0; 
+ include_netlist_insert = 0; 
+ Last Test = IC2_DDR3L; 
+Test Procedure IC1 = Interconnect;
+ ClusterTest = IC2,DDR3_2GB_128mx16_MPR_test,-1,0
+

@@ -1,0 +1,4 @@
+DQ = 65bc at Read command after MPR Mode register 3 set
+DQ = 65bc at Read command after MPR Mode register 3 set
+DQ = 65bc at Read command after MPR Mode register 3 set
+DQ = 65bc at Read command after MPR Mode register 3 set

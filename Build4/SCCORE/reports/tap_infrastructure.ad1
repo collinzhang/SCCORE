@@ -1,0 +1,59 @@
+******************************************************************************
+** Flynn Systems' onTAP Testability Report for Project F:\bsdapps\WELCO\Debug\SCCORE_method_1\SCCORE_method_1\SCCORE 
+** Wed Aug 12 08:48:08 2020
+                                                     
+******************************************************************************
+//////////////////////////////////////////////////////////////
+/////////  Testability Advisory 
+
+ Circuit Location........... IC1 
+ Chain Link Position........ A1 
+ Logic Type................. VYBRID_364_F 
+ BSDL Syntax Errors......... 0 
+ I/O Pin Count.............. 179 (INPUTS = 0,OUTPUT3 = 28,BIDIR = 151,OUTPUT2 = 0) 
+ TAP Pins w/o Probe Access.. JTDI,JTDO,JTCLK,JTMS  THESE PROBLEMS MUST BE FIXED FIRST! See onTAP JUMPERS 
+ I/O Pins w/o Probe Access.. INPUTS = 0,OUTPUT3 = 28,BIDIR = 151,OUTPUT2 = 0 
+ I/O Pins w/o Probe Access   
+  and w/o BSCAN Pin Access.. INPUTS = 0,OUTPUT3 = 28,BIDIR = 147,OUTPUT2 = 0 
+ I/O Pins with BREG Acess... INPUTS = 0,OUTPUT3 = 0,BIDIR = 4,OUTPUT2 = 0 
+ Same Chain Interaction..... 0 
+ Parallel Chn. Interaction.. 0 
+ Indepen't Chn. Interaction. 0 
+ Non-Chain Interaction...... 0 
+ Pin Info................... OUTPUT3 = 28,BIDIR = 151,NO_CONNECTS = 1 (ALPHA-NUMERIC) 
+ Suggestions:
+  No chain interaction. Device IC1 can be tested stand-a-lone.
+
+********************************************************************
+****  Summary Report       
+********************************************************************
+
+  Project Size Summary:
+    1 Chains.
+    1 Boundary Scan Devices.
+    183 Boundary Register Pins.
+    181 Circuit Nets.
+    28 OUTPUT3 Pins.
+    151 BIDIR Pins.
+    1 NO_CONNECT Pins.
+    1 NO_CONNECT Pins without probes.
+    1 Alpha-numeric pin style packages.
+  Incomplete TAP PIN access on 1 devices. 
+  Independent ICT tests may be developed for the following devices: 
+             IC1
+
+  NO_PROBE pins: 175 / 179 (97.8%) of I/O pins do not have probe or 
+    boundary register access. 
+
+///////////////////////////////////////////////////////////////////////////////
+ Stuck-at Fault Score Summary... 
+
+          I/O     Input     Input     Output    Output  Undetect-                           
+ Device   Pins    SA0       SA1       SA0       SA1     able Pins  Score  IDCODE Opens Shorts     
+ -------------------------------------------------------------------------------------------
+IC1       179     0/153     0/153     0/180     0/180     29       0.0%   Yes     
+Summary   179     0/153     0/153     0/180     0/180     29       0.0%      
+
+////////////////////////////////////////////////////////////////////////
+// LIST of ALIAS Names that match Net locations to BSDL file names 
+// Syntax is: alias = circuit_location_type = BSDL entity; 
