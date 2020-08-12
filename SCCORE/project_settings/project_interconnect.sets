@@ -1,0 +1,27 @@
+// Options 
+ AllowSelfCapture = 1; 
+SetRetriesOnFail = 0; 
+ InterconnectComplementVectors = 1; 
+ AteSelections = SVFSVF;
+ DtsBurst = -1; 
+ DblInterconShorts = 1; 
+ SuppressTestGen = 0; 
+ BaseAppName = interconnect; 
+tck_clocks_in_rti = 0; 
+ use_extest_train = 0; 
+ NetViewTapInstructs =  U4E1=EXTEST ; 
+ OutputSwitchFactor = 1; 
+ include_no_connect_pins = 1; 
+ non_jtag_circuit_manager = 1; 
+ test_safe_circuits_only = 0; 
+ use_atg_algo = 1; 
+ include_gpio_netlist = 0; 
+ include_netlist_insert = 0; 
+ Last Test = interconnect; 
+Test Procedure IC1 = Interconnect;
+ include_gpio_netlist = 0; 
+ include_netlist_insert = 0; 
+ include_gpio_netlist = 0; 
+ include_netlist_insert = 0; 
+ include_gpio_netlist = 0; 
+ include_netlist_insert = 0; 

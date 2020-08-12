@@ -1,0 +1,23 @@
+ //  
+ // Boundary Scan Test Control Program     Tue Aug 11 15:48:56 2020  
+ //  
+ test_sequence = INTERCONNECT; 
+ test_process = AllowSelfCapture; 
+ alias = IC = VYBRID_364_F; 
+ logics = C:\Flynn Systems Corp\onTAP\logics\jtag; 
+ netlist = F:\bsdapps\WELCO\Debug\SCCORE\SCCORE\SCCORE.xnf; 
+ netlist_file = F:\bsdapps\WELCO\Debug\SCCORE\SCCORE\SCCORE_NETS_9011.xnf; 
+ dtsfile = F:\bsdapps\WELCO\Debug\SCCORE\SCCORE\test_files_for_deployment\interconnect.dts; 
+ SVF_test_file = F:\bsdapps\WELCO\Debug\SCCORE\SCCORE\test_files_for_deployment\interconnect.svf;  // Test in Serial Vector Format 
+ ATE_output_file = F:\bsdapps\WELCO\Debug\SCCORE\SCCORE\test_files_for_deployment\interconnect.ate;  // Test in JEDEC Vector Format 
+
+ begin, IC1,  IC, TEST, CHAIN; 
+
+   // Chip-to-chip TAP connections for IC1 follow. 
+    // IC1.K2(K2) joins 
+    // IC1.K1 joins 
+    // IC1.JTCLK(K4) joins 
+    // IC1.JTMS(L1) joins 
+   //  ...NO TAP connections for IC1. 
+ end; 
+end_netlist; 

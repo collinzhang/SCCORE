@@ -1,0 +1,90 @@
+Test and Diagnostic Data...Boundary Cell Order and test Expect Data
+Relate nets to TDO bit order...
+flt= 101 BYPASS test failure at IC1.K2.
+flt= 101 BYPASS test failure at IC1.K2.
+flt= 101 BYPASS test failure at IC1.K2.
+flt= 101 BYPASS test failure at IC1.K2.
+flt= 101 BYPASS test failure at IC1.K2.
+flt= 101 TAP IC1 fails BYPASS test 
+end vector 
+begin vector 2 IDCODE ShiftDR 
+flt= 102 IC1 FAILS IDCODE..Standard bit 0
+flt= 103 IC1 FAILS IDCODE..MANUF.ID bit 1
+flt= 104 IC1 FAILS IDCODE..MANUF.ID bit 2
+flt= 105 IC1 FAILS IDCODE..MANUF.ID bit 3
+flt= 106 IC1 FAILS IDCODE..MANUF.ID bit 4
+flt= 107 IC1 FAILS IDCODE..MANUF.ID bit 5
+flt= 108 IC1 FAILS IDCODE..MANUF.ID bit 6
+flt= 109 IC1 FAILS IDCODE..MANUF.ID bit 7
+flt= 110 IC1 FAILS IDCODE..MANUF.ID bit 8
+flt= 111 IC1 FAILS IDCODE..MANUF.ID bit 9
+flt= 112 IC1 FAILS IDCODE..MANUF.ID bit 10
+flt= 113 IC1 FAILS IDCODE..MANUF.ID bit 11
+flt= 114 IC1 FAILS IDCODE..PART.NO. bit 12
+flt= 115 IC1 FAILS IDCODE..PART.NO. bit 13
+flt= 116 IC1 FAILS IDCODE..PART.NO. bit 14
+flt= 117 IC1 FAILS IDCODE..PART.NO. bit 15
+flt= 118 IC1 FAILS IDCODE..PART.NO. bit 16
+flt= 119 IC1 FAILS IDCODE..PART.NO. bit 17
+flt= 120 IC1 FAILS IDCODE..PART.NO. bit 18
+flt= 121 IC1 FAILS IDCODE..PART.NO. bit 19
+flt= 122 IC1 FAILS IDCODE..PART.NO. bit 20
+flt= 123 IC1 FAILS IDCODE..PART.NO. bit 21
+flt= 124 IC1 FAILS IDCODE..PART.NO. bit 22
+flt= 125 IC1 FAILS IDCODE..PART.NO. bit 23
+flt= 126 IC1 FAILS IDCODE..PART.NO. bit 24
+flt= 127 IC1 FAILS IDCODE..PART.NO. bit 25
+flt= 128 IC1 FAILS IDCODE..PART.NO. bit 26
+flt= 129 IC1 FAILS IDCODE..PART.NO. bit 27
+flt= 130 IC1 FAILS IDCODE..VERSION bit 28
+flt= 131 IC1 FAILS IDCODE..VERSION bit 29
+flt= 132 IC1 FAILS IDCODE..VERSION bit 30
+flt= 133 IC1 FAILS IDCODE..VERSION bit 31
+end vector 
+begin vector 2 IDCODE ShiftDR 
+ *
+begin vector 4 SHORTS ShiftDR 
+end vector 
+begin vector 5 SHORTS ShiftDR 
+end vector 
+begin vector 6 SHORTS ShiftDR 
+end vector 
+begin vector 7 SHORTS ShiftDR 
+end vector 
+begin vector 8 SHORTS ShiftDR 
+end vector 
+begin vector 9 SHORTS ShiftDR 
+end vector 
+begin vector 10 SHORTS ShiftDR 
+end vector 
+begin vector 11 SHORTS ShiftDR 
+end vector 
+begin vector 12 SHORTS ShiftDR 
+end vector 
+begin vector 13 SHORTS ShiftDR 
+end vector 
+begin vector 14 SHORTS ShiftDR 
+end vector 
+begin vector 15 SHORTS ShiftDR 
+end vector 
+begin vector 16 SHORTS ShiftDR 
+end vector 
+begin vector 17 SHORTS ShiftDR 
+end vector 
+begin vector 18 SHORTS ShiftDR 
+end vector 
+begin vector 19 SHORTS ShiftDR 
+end vector 
+begin vector 20 SHORTS ShiftDR 
+end vector 
+begin vector 21 SHORTS ShiftDR 
+end vector 
+begin vector 22 SHORTS ShiftDR 
+end vector 
+begin vector 23 SHORTS ShiftDR 
+end vector 
+begin vector 24 SHORTS ShiftDR 
+end vector 
+begin vector 25 SHORTS ShiftDR 
+end vector 
+end vector 

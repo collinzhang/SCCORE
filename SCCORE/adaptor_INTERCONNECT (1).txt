@@ -1,0 +1,2 @@
+Adaptor Type = USB Port, FTDI 
+Chain, A, Dual FSC_USB_70208 A, 4.84MHz, 7, high_speed

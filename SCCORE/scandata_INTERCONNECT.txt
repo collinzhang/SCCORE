@@ -1,0 +1,13 @@
+Raw Scan Data 
+
+Chain A Vector 1,  Scan instruction bits 4, SVF line 433 
+  TDI       0 
+  TDO       1 
+  MASK      0 
+  MEASURE   F 
+
+Chain A Vector 1,  Scan data bits 32, SVF line 436 
+  TDI       1980101D 
+  TDO       1980101D 
+  MASK      00000000 
+  MEASURE   00000000 

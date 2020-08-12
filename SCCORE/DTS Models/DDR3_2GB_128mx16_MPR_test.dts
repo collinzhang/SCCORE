@@ -1,0 +1,980 @@
+
+// DDR3L SDRAM 2GB 128Mx16 800MT
+// s
+// Flynn Systems Corporation
+// 96 ball BGA Package
+// June, 2020 - Version 1
+
+.HEAD;
+
+.BIDIR_TRI(
+  N3=A0,
+  A2=DQ13,
+  A3=DQ15,
+  A7=DQ12,
+  B7=UDQSN,
+  B8=DQ14,
+  C2=DQ11,
+  C3=DQ9,
+  C7=UDQS,
+  C8=DQ10,
+  D3=UDM,
+  D7=DQ8,
+  E3=DQ0,
+  E7=LDM,
+  F2=DQ2,
+  F3=LDQS,
+  F7=DQ1,
+  F8=DQ3,
+  G2=DQ6,
+  G3=LDQSN,
+  H7=DQ7,
+  H8=DQ5,
+  J3=RAS,
+  J7=CLK,
+  K1=ODT,
+  K3=CAS,
+  K7=nCLK,
+  K9=CKE,
+  L2=CS,
+  L3=WE,
+  L7=A10,
+  L8=ZQ,
+  M2=BA0,
+  M3=BA2,
+  M7=A15,
+  N2=A3,
+  N7=A12,
+  N8=BA1,
+  P2=A5,
+  P3=A2,
+  P7=A1,
+  P8=A4,
+  R2=A7,
+  R3=A9,
+  R7=A11,
+  R8=A6,
+  T2=RSTN,
+  T3=A13,
+  T7=A14,
+  T8=A8);
+/* 
+ .EXTERNAL(
+ DDR_DM(0)=LDM,
+ DDR_DQS(1)#=UDQSN,
+ DDR_DQS(0)=LDQS,
+ DDR_DQS(0)#=LDQSN,
+ DDR_DQ(0)=DQ4,
+ DDR_CLK=CLK,
+ DDR_ODT0=ODT,
+ DDR_CLK#=nCLK,
+ DDR_CS#=CS,
+ DDR_CKE=CKE,
+ DDR_A(0)=A0,
+ DDR_BS(0)=BA0
+  );
+*/
+.END HEAD;
+
+
+// MODEL DECLARES 
+.DECLARE GROUP ADDR(A13,A12,A11,A10,A9,A8,A7,A6,A5,A4,A3,A2,A1,A0);
+.DECLARE GROUP DQ(DQ15,DQ14,DQ13,DQ12,DQ11,DQ10,DQ9,DQ8,DQ7,DQ6,DQ5,DQ4,DQ3,DQ2,DQ1,DQ0);
+.DECLARE GROUP BANK(BA2,BA1,BA0);
+
+//*****************************************************************************
+//  Declare variables and subroutine prototypes
+//*****************************************************************************
+int x,bit,bitpos;
+int fails,save_fails;
+int expect,dbus;
+int retries,bit_shifter;
+int z,i,k,b;
+int fail_array[38];
+int address,bnk,data,column,row,a10_col,col,row_byte;
+int wdata,rdata;
+int result,save_row;
+int c,deselects;
+
+int captures;
+int  all_pins_low ,all_pins_high,mix_high_low, ldqs_low, ldqs_high, ldqsn_low;
+int  ldqsn_high;
+int udqs_low, udqs_high, udqsn_low,udqsn_high;
+int mpr_addr;
+int mpr_bank;
+//sub DataBusDiagnostics();
+
+sub WriteData();
+
+sub ReadData();
+sub Clocks(int clks);
+sub ClockStrobe(int clkstrb);
+sub Nops(int nopcnt);
+sub NopsRead(int nopcnt);
+sub PreChargeAll();
+sub AutoRefresh(int refreshes);
+sub Activate(int bnk_addr,int row_addr);
+sub ActivateRead(int bnk_addr,int row_addr); 
+sub WriteAutoPrecharge(int bnk_addr, int col_addr,int write_data);
+sub ReadAutoPrecharge(int bnk_addr, int col_addr, int read_data);
+sub PreRead();
+
+
+.MAIN;
+//********************************************************************************
+// Note: Diagnostic messages can be customized using the MESSAGE_FILE instruction.
+//       The CountFailsOff instruction disables onTAP's built-in diagnostics.
+//       See useage below.
+//********************************************************************************
+
+    MESSAGE_FILE(x.fail,ERASE);   // erase file used to capture diagnostic messages
+    MESSAGE_FILE(MPR.txt,ERASE);   // erase file used to capture diagnostic messages
+    
+    CountFailsOff();
+    fails = 0;
+    expect = 0;
+    IL(CS);
+    IL(CS);
+// Set CKE low and apply stable clock signals
+    ID(DQ);
+    IL(RSTN);  // RESET# LOW to ensure the outputs remain disabled
+               // (High-Z). After the power is stable, RESET# must be LOW for at least 200µs to begin
+               // the initialization process.
+    IL(CKE);   // CKE must be LOW 10ns prior to RESET# transitioning HIGH.
+    IH(RSTN);  // After RESET# transitions HIGH, wait 500µs (minus one clock) with CKE LOW.
+               
+    IL(CS,ODT,LDM,UDM,CLK) IH(nCLK) IG(BANK=B'000') IG(ADDR=X'00000'); 
+ 
+    for ( x = 1; x <= 8; ++x )
+    {
+       IH(CLK) IL(nCLK);                   // double clocking
+       IL(CLK) IH(nCLK);
+    }   
+
+// CKE high 
+/// INITIALIZATION Take CKE High
+    IH(CKE);   // After this CKE LOW time, CKE may be brought HIGH (synchronously) and only
+               // NOP or DES commands may be issued. The clock must be present and valid for at
+               // least 10ns (and a minimum of five clocks) and ODT must be driven LOW at least
+               // tIS prior to CKE being registered HIGH. When CKE is registered HIGH, it must be
+               // continuously registered HIGH until the full initialization process is complete.
+    
+     Nops(8);
+     
+ // PRECHARGE ALL BANKS 
+ 
+ //****************************************
+ // Initialization Step 3. PRECHARGE ALL
+ 
+     PreChargeAll();
+     
+ // Nops 
+    
+ 
+ 
+ /// INITIALIZATION STEP 4
+ // LOAD MODE REGISTER EMR(2)
+ // SET SINGLE LOCATION ACCESS,SOP,CAS LAT=3,SEQ 
+ //    BURST MODE,BURST LENGTH=4 
+     IL(RAS,CAS,WE)  IG(BANK=B'010') IG(ADDR=X'0140');   
+     ClockStrobe(1);
+  Nops(8);
+ /// INITIALIZATION STEP 5   
+ // LOAD MODE REGISTER EMR(3)
+ // SET SINGLE LOCATION ACCESS,SOP,CAS LAT=3,SEQ 
+ //    BURST MODE,BURST LENGTH=4 
+     IL(RAS,CAS,WE)  IG(BANK=B'011') IG(ADDR=X'0000');     
+     ClockStrobe(1);
+  
+  Nops(8);
+ /// INITIALIZATION STEP 6   
+ // LOAD MODE REGISTER EMR register
+ // SET SINGLE LOCATION ACCESS,SOP,CAS LAT=3,SEQ 
+ //    BURST MODE,BURST LENGTH=4 
+//     IL(RAS,CAS,WE)  IG(BANK=B'001') IG(ADDR=X'0001');      /// 
+    IL(RAS,CAS,WE)  IG(BANK=B'001') IG(ADDR=X'0800');      /// 0CD0->DQ=0,IG(ADDR=X'0000')->DQ=0xFF, ADDR=X'0800'->alternating 0/0xFF on DQ
+     ClockStrobe(8);
+   Nops(8);
+ /// INITIALIZATION STEP 7   
+ // LOAD MODE REGISTER DLL reset
+ // SET SINGLE LOCATION ACCESS,SOP,CAS LAT=3,SEQ 
+ //    BURST MODE,BURST LENGTH=4 
+     IL(RAS,CAS,WE,ODT) IH(CKE) IG(BANK=B'000') IG(ADDR=X'0210');    
+     ClockStrobe(810);
+      
+  Nops(8);
+     
+ /// INITIALIZATION STEP 8   
+ // PRECHARGE ALL BANKS 
+     PreChargeAll();
+ 
+ /// INITIALIZATION STEP 9  
+     AutoRefresh(3);
+ 
+     Nops(1);
+     AutoRefresh(2);
+    
+     Nops(1);
+ 
+     AutoRefresh(1);
+     Nops(1);
+     AutoRefresh(1);
+     Nops(1);    
+     IL(CAS,RAS) IH(WE);   // Auto Refresh
+     
+
+ // Nops 
+     IH(CAS,RAS,WE);
+     ClockStrobe(20);
+ 
+ // PRECHARGE ALL BANKS 
+     IH(CAS,A10) IL(RAS,WE);
+     ClockStrobe(1);
+  
+     
+     IL(CAS,RAS) IH(WE);   // Auto Refresh
+     ClockStrobe(1);
+     IH(CAS,RAS,WE);
+     
+ // Nops 
+     IH(CAS,RAS,WE);
+     ClockStrobe(8);
+     
+     IL(CAS,RAS) IH(WE);   // Auto Refresh
+     Clocks(1);
+  
+     IH(CAS,RAS,WE);
+     ClockStrobe(8);
+ 
+ //NOP   
+     IH(CAS,RAS,WE);
+     ClockStrobe(2);
+ 
+     
+ // ADDRESS AND BANK TESTING
+ // PRECHARGE ALL BANKS 
+     IH(CAS,A10) IL(RAS,WE);
+     ClockStrobe(1);
+
+
+    save_fails = fails;
+    fails = 0;
+        
+       
+     IG(DQ=0x0);
+     IG(DQ=0x0);
+      ID(DQ);
+      ID(LDQS,LDQSN,UDQS,UDQSN);        
+      OG(DQ=data);
+      MESSAGE("DQ = %x, LDQS=%x, LDQSN=%x, UDQS=%x, UDQSN=%x",DQ,LDQS,LDQSN,UDQS,UDQSN);
+      OG(DQ=data);
+       MESSAGE("DQ = %x, LDQS=%x, LDQSN=%x, UDQS=%x, UDQSN=%x",DQ,LDQS,LDQSN,UDQS,UDQSN); 
+     
+      IG(DQ=0xFFFF);
+      ID(DQ);
+      ID(LDQS,LDQSN,UDQS,UDQSN);        
+      OG(DQ=data);
+       MESSAGE("DQ = %x, LDQS=%x, LDQSN=%x, UDQS=%x, UDQSN=%x",DQ,LDQS,LDQSN,UDQS,UDQSN);
+      OG(DQ=data);
+       MESSAGE("DQ = %x, LDQS=%x, LDQSN=%x, UDQS=%x, UDQSN=%x",DQ,LDQS,LDQSN,UDQS,UDQSN);     
+    row = 0;
+    bnk = 0;
+    
+    data = 0;
+    column = X'0400';      
+      
+      ID(DQ);
+ 
+    PreRead();
+    exit;
+  
+        
+
+WriteData()
+{
+      IL(ODT,CS,CLK,LDM,UDM) IH(CKE,LDQSN,UDQSN);
+ //     IL(CS,CLK,DM) IH(ODT,CKE,DQSN);
+     
+       
+       IL(RAS,WE) IH(CAS,WE) IG(BANK=bnk) IG(ADDR=row);
+       ClockStrobe(1);
+
+    // BANK WRITE AUTO PRECHARGE 
+       IG(DQ=data) IH(RAS) IL(CAS,WE) IG(BANK=bnk) IG(ADDR=column);
+       ClockStrobe(1);
+ 
+       IH(RAS) IH(CAS,WE);
+       ClockStrobe(8);
+       
+ //   MESSAGE_FILE(debug.txt,"address=%X DQ=%X data=%X bank=%X row=%X col=%X bit=%x",ADDR,DQ,data,bnk,row,column,bit);
+ //   MESSAGE_FILE(debug.txt,"END WRITE DATA");   
+
+}
+
+ReadData()
+{
+     
+      IL(CLK,LDQS,UDQS,LDM,UDM,ODT) IH(nCLK,LDQSN,UDQSN);
+      
+    
+    // READ
+    // BANK ACTIVATE 
+   
+        
+        IL(RAS) IH(CKE,CAS,WE) IG(BANK=bnk) IG(ADDR=row);
+        Clocks(1);
+
+    // BANK READ AUTO PRECHARGE 
+        IL(CAS) IH(RAS,WE) IG(ADDR=column) IG(BANK=bnk);
+        Clocks(1);
+  
+        IH(RAS) IH(CAS,WE,CKE);
+       
+        for ( x = 1; x <= 4; ++x )
+        {
+	    OG(DQ=data); 
+
+            if ( DQ == data )
+            {
+                break;
+           
+            }
+ 
+            
+        // BANK ACTIVATE 
+            IL(RAS) IH(CAS,WE) IG(BANK=bnk) IG(ADDR=row);
+             
+ 
+            Clocks(1);
+        // BANK READ AUTO PRECHARGE 
+            IL(CAS) IH(RAS) IG(ADDR=column) IG(BANK=bnk);
+
+            Clocks(1);
+
+            IH(RAS) IH(CAS,WE);   
+    
+         
+        }
+        IL(CLK) IH(nCLK);
+//     MESSAGE_FILE(debug.txt,"address=%X DQ=%X data=%X bank=%X row=%X col=%X bit=%x",ADDR,DQ,data,bnk,row,column,bit);     
+//     MESSAGE_FILE(debug.txt,"END READ DATA");
+
+}
+
+/****************************************************/
+Activate(int bnk_addr,int row_addr) 
+{
+    IL(RAS) IH(CAS,WE) IG(BANK=bnk_addr) IG(ADDR=row_addr);
+    ClockStrobe(1);
+}
+
+/****************************************************/
+ActivateRead(int bnk_addr,int row_addr) 
+{
+   IG(BANK=bnk_addr) IG(ADDR=row_addr) IL(RAS) IH(CAS,WE,CKE);
+   Clocks(1);
+}
+
+/****************************************************/
+WriteAutoPrecharge(int bnk_addr, int col_addr, int write_data) 
+{
+//   wdata = write_data;
+   IG(BANK=bnk_addr) IG(ADDR=col_addr) IG(DQ=write_data) IL(CAS,WE) IH(RAS,A10);
+   ClockStrobe(2);
+}
+
+/****************************************************/
+ReadAutoPrecharge(int bnk_addr, int col_addr, int read_data) 
+{
+
+   IG(BANK=bnk_addr) IG(ADDR=col_addr) IL(CAS) IH(RAS,A10,WE);
+   Clocks(2);
+}
+
+/****************************************************/
+Nops(int nopcnt)
+{
+    IH(CAS,RAS,WE);
+    ClockStrobe(nopcnt);
+}
+
+/****************************************************/
+NopsRead(int nopcnt)
+{
+    IH(CAS,RAS,WE);
+    Clocks(nopcnt);
+}
+
+/****************************************************/
+PreChargeAll()
+{
+    IH(CAS,A10) IL(RAS,WE);
+    ClockStrobe(1);
+
+}
+
+/****************************************************/
+AutoRefresh(int refreshes)
+{
+   IL(CAS,RAS) IH(WE);   // Auto Refresh
+   ClockStrobe(refreshes);
+}
+
+/****************************************************/
+
+Clocks(int clks)
+{
+   int k;
+   for ( k = 1; k <= clks; ++k )
+   {
+        IH(CLK) IL(nCLK);
+        IL(CLK) IH(nCLK);   
+    
+   }
+
+}
+
+ClockStrobe(int clkstrb)
+{
+   int c;
+   for ( c = 1; c <= clkstrb; ++c )
+   {
+
+        IH(CLK,LDQS,UDQS) IL(nCLK,LDQSN,UDQSN);
+        IL(CLK,LDQS,UDQS) IH(nCLK,LDQSN,UDQSN); 
+//        MESSAGE_FILE(ddr3.txtt,"    WriteClock ");
+   }
+}
+
+
+ ///******************************************************
+  PreRead()
+  {
+   all_pins_low = 0;
+    all_pins_high = 0;
+    mix_high_low = 0;
+    captures = 0;
+    ldqs_low = 0;
+    ldqs_high = 0;
+    ldqsn_low = 0;
+    ldqsn_high = 0;
+
+    udqs_low = 0;
+    udqs_high = 0;
+    udqsn_low = 0;
+    udqsn_high = 0;    
+    
+    captures = 0;
+    
+    mpr_bank = B'011';
+    mpr_addr = X'0004';     
+    
+    fails = 0;
+//     MESSAGE("****************");
+     
+//     MESSAGE("mpr_bank = %x, mpr_addr = %x",mpr_bank,mpr_addr);    
+
+
+    IH(ODT);
+    
+    IG(BANK=B'000');
+    IG(ADDR=X'0400');
+    PreChargeAll();
+    
+    IG(BANK=B'001');
+    IG(ADDR=X'0400');
+    PreChargeAll();   
+    
+    IG(BANK=B'010');
+    IG(ADDR=X'0400');    
+    PreChargeAll();   
+    
+    IG(BANK=B'011');
+    IG(ADDR=X'0400');    
+    PreChargeAll();     
+    
+    IL(RAS,CAS,WE)  IG(BANK=B'000') IG(ADDR=X'0000');      /// MR0
+    Clocks(1);  
+    IH(CKE);
+    IL(RAS,CAS,WE)  IG(BANK=B'001') IG(ADDR=X'0EA0');      /// Mode Register MR1
+    Clocks(8);
+
+    IL(RAS,CAS,WE) IH(CKE) IG(BANK=B'000') IG(ADDR=X'0101');   // Mode Register 0 
+  //  Clocks(512); 
+     Clocks(10);
+
+    IG(ADDR=X'0400');
+    PreChargeAll();          // STEP 1 Micron MPR Read Predefined Pattern (pg154 DS) 
+
+     
+    IL(RAS,CAS,WE)  IG(BANK=mpr_bank) IG(ADDR=mpr_addr);    // STEP 2 Micron MPR Read Predefined Pattern (pg154 DS) 
+
+    Clocks(2);
+
+    i = 0;
+     ID(DQ);
+     ID(LDQS,LDQSN,UDQS,UDQSN);   
+     
+
+    
+ //    ReadData();
+     
+//    IG(ADDR=mpr_addr);
+     
+     row = 0x0000;
+     column = 0x0400;
+//     ReadData();         // STEP 4 Micron MPR Read Predefined Pattern (pg154 DS) 
+
+     MESSAGE("DQ = %X at Read command after MPR Mode register 3 set",DQ);  
+      MESSAGE_FILE(ddr3.txt,"DQ = %X at Read command after MPR Mode register 3 set",DQ); 
+
+     wait 10ms;
+     
+     
+     
+     IH(RAS,WE) IL(CAS)  IG(BANK=mpr_bank) IG(ADDR=mpr_addr);  //READ
+     Clocks(1);
+//***********************************
+//
+       IG(ADDR=0);
+//       IG(BANK=0);
+     ID(DQ);
+     ID(LDQS,LDQSN,UDQS,UDQSN);     
+     ID(LDM,UDM);
+     IH(CAS,RAS,WE);
+     
+     IL(CS,ODT,LDM,UDM);
+
+// should see alternating 0/1 pattern on DQ pins
+
+    for ( i = 1; i <= 10; ++i )    // // STEP 5 Micron MPR Read Predefined Pattern (pg154 DS)
+    {
+   
+         IH(CLK) IL(nCLK);
+ 
+         ++captures;
+         OG(DQ=0);
+         
+         OH(LDQS,LDQSN,UDQS,UDQSN);
+         
+         if ( DQ == 0 )
+         {
+            ++all_pins_low;
+         
+         }
+         if ( DQ >= 0xFFFF )
+         {
+            ++all_pins_high;
+        
+         }       
+    
+         if ( DQ != 0 && DQ < 0xF )
+         {
+             ++mix_high_low;
+ //            MESSAGE("at capture %d DQ = MIX ",captures);
+         
+         }
+       if ( LDQS )
+         {
+             ++ldqs_high;
+         
+         }
+         else 
+         {
+            ++ldqs_low;
+         }
+         if ( LDQSN )
+         {
+             ++ldqsn_high;
+         
+         }
+         else 
+         {
+            ++ldqsn_low;
+         }             
+         
+         if ( UDQS )
+         {
+             ++udqs_high;
+         
+         }
+         else 
+         {
+            ++udqs_low;
+         }
+         if ( UDQSN )
+         {
+             ++udqsn_high;
+         
+         }
+         else 
+         {
+            ++udqsn_low;
+         }                           
+        
+                 
+         MESSAGE_FILE(MPR.txt,"i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN); 
+         MESSAGE("i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN); 
+ //        MESSAGE_PAUSE("i = %d, MPR = %X, DQU=%X,DQSN = %X",i,DQ,DQS,DQSN); 
+         
+
+ 	++captures;
+         IL(CLK) IH(nCLK);
+
+         OG(DQ=0);
+
+         OH(LDQS,LDQSN,UDQS,UDQSN);
+         
+         if ( DQ == 0 )
+         {
+            ++all_pins_low;
+         
+         }
+         if ( DQ >= 0xFFFF )
+         {
+            ++all_pins_high;
+        
+         }       
+     
+         if ( DQ != 0 && DQ < 0xF )
+         {
+             ++mix_high_low;
+ //            MESSAGE("at capture %d DQ = MIX ",captures);
+         
+         }
+        if ( LDQS )
+         {
+             ++ldqs_high;
+         
+         }
+         else 
+         {
+            ++ldqs_low;
+         }
+         if ( LDQSN )
+         {
+             ++ldqsn_high;
+         
+         }
+         else 
+         {
+            ++ldqsn_low;
+         }             
+         
+         if ( UDQS )
+         {
+             ++udqs_high;
+         
+         }
+         else 
+         {
+            ++udqs_low;
+         }
+         if ( UDQSN )
+         {
+             ++udqsn_high;
+         
+         }
+         else 
+         {
+            ++udqsn_low;
+         }                           
+        
+                 
+         
+
+         MESSAGE_FILE(MPR.txt,"i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN); 
+         MESSAGE("i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN);  
+ //        MESSAGE_PAUSE("i = %d, MPR = %X,  DQU=%X,DQSN = %X",i,DQ,DQS<DQSN);  
+     
+     }
+   
+    IG(ADDR=X'0400');
+    PreChargeAll();
+
+    IL(RAS,CAS,WE)  IG(BANK=B'000') IG(ADDR=X'0000');      /// MR0
+    Clocks(1);  
+
+    IL(RAS,CAS,WE)  IG(BANK=B'001') IG(ADDR=X'0001');      /// Mode Register MR1
+    Clocks(8);
+
+    IL(RAS,CAS,WE) IH(CKE) IG(BANK=B'000') IG(ADDR=X'0101');   // Mode Register 0 
+  //  Clocks(512); 
+     Clocks(10);
+
+    IG(ADDR=X'0400');
+    PreChargeAll();          // STEP 1 Micron MPR Read Predefined Pattern (pg154 DS) 
+    
+ 
+ 
+    
+    IL(RAS,CAS,WE)  IG(BANK=mpr_bank) IG(ADDR=mpr_addr);    // STEP 2 Micron MPR Read Predefined Pattern (pg154 DS) 
+
+    Clocks(2);
+
+    i = 0;
+     ID(DQ);
+     ID(LDQS,LDQSN,UDQS,UDQSN);   
+     
+    IG(ADDR=X'0400');
+    
+ //    ReadData();
+     
+//    IG(ADDR=mpr_addr);
+     
+     row = 0x0000;
+     column = 0x0400;
+     ReadData();         // STEP 4 Micron MPR Read Predefined Pattern (pg154 DS) 
+
+     MESSAGE("DQ = %X at Read command after MPR Mode register 3 set",DQ);             
+
+     wait 10ms;
+    
+     IH(RAS,WE) IL(CAS)  IG(BANK=mpr_bank) IG(ADDR=mpr_addr);  //READ
+     Clocks(1);
+//***********************************
+//
+       IG(ADDR=0);
+//       IG(BANK=0);
+     ID(DQ);
+    ID(LDQS,LDQSN,UDQS,UDQSN);      
+     ID(LDM,UDM);
+     IH(CAS,RAS,WE);
+
+     
+// should see alternating 0/1 pattern on DQ pins
+
+    for ( i = 1; i <= 10; ++i )    // // STEP 5 Micron MPR Read Predefined Pattern (pg154 DS)
+    {
+         IH(RAS,CAS,WE) IL(CS);
+         IH(CLK) IL(nCLK);
+//        NopsRead(1);
+         ++captures;
+         OG(DQ=0);
+         
+         OH(LDQS,LDQSN,UDQS,UDQSN);
+         
+         if ( DQ == 0 )
+         {
+            ++all_pins_low;
+         
+         }
+         if ( DQ >= 0xFF )
+         {
+            ++all_pins_high;
+        
+         }       
+  
+         if ( DQ != 0 && DQ < 0xF )
+         {
+             ++mix_high_low;
+ //            MESSAGE("at capture %d DQ = MIX ",captures);
+         
+         }
+        if ( LDQS )
+          {
+              ++ldqs_high;
+          
+          }
+          else 
+          {
+             ++ldqs_low;
+          }
+          if ( LDQSN )
+          {
+              ++ldqsn_high;
+          
+          }
+          else 
+          {
+             ++ldqsn_low;
+          }             
+          
+          if ( UDQS )
+          {
+              ++udqs_high;
+          
+          }
+          else 
+          {
+             ++udqs_low;
+          }
+          if ( UDQSN )
+          {
+              ++udqsn_high;
+          
+          }
+          else 
+          {
+             ++udqsn_low;
+          }                           
+         
+ 
+        
+         MESSAGE_FILE(MPR.txt,"i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN); 
+         MESSAGE("i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN);  
+ //        MESSAGE_PAUSE("i = %d, MPR = %X, DQU=%X,DQSN = %X",i,DQ,DQS,DQSN); 
+         
+ 
+ 	++captures;
+         IL(CLK) IH(nCLK);
+         OG(DQ=0);
+       
+         OH(LDQS,LDQSN,UDQS,UDQSN);
+         
+         if ( DQ == 0 )
+         {
+            ++all_pins_low;
+         
+         }
+         if ( DQ >= 0xFFFF )
+         {
+            ++all_pins_high;
+        
+         }       
+      
+         if ( DQ != 0 && DQ < 0xF )
+         {
+             ++mix_high_low;
+ //            MESSAGE("at capture %d DQ = MIX ",captures);
+         
+         }
+          if ( LDQS )
+            {
+                ++ldqs_high;
+            
+            }
+            else 
+            {
+               ++ldqs_low;
+            }
+            if ( LDQSN )
+            {
+                ++ldqsn_high;
+            
+            }
+            else 
+            {
+               ++ldqsn_low;
+            }             
+            
+            if ( UDQS )
+            {
+                ++udqs_high;
+            
+            }
+            else 
+            {
+               ++udqs_low;
+            }
+            if ( UDQSN )
+            {
+                ++udqsn_high;
+            
+            }
+            else 
+            {
+               ++udqsn_low;
+            }                           
+        
+        
+         MESSAGE_FILE(MPR.txt,"i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN); 
+         MESSAGE("i = %d, DQ = %X, LDQS = %X, UDQS = %x,LDQSN = %x, UDQSN = %x",i,DQ,LDQS,UDQS,LDQSN,UDQSN);   
+ //        MESSAGE_PAUSE("i = %d, MPR = %X,  DQU=%X,DQSN = %X",i,DQ,DQS<DQSN);  
+     
+     }
+      
+   
+ ///
+ //***********************************
+//
+
+     
+    if ( all_pins_high < 3 )
+    {
+       ++fails;
+    }
+    if ( all_pins_low < 3 )
+    {
+       ++fails;
+    }    
+  
+    if ( ldqs_low < 1 )
+    {
+       ++fails;
+    }
+    if ( ldqs_high < 1 )
+    {
+       ++fails;
+    }    
+    if ( ldqsn_low < 1 )
+    {
+       ++fails;
+    }
+    if ( ldqsn_high < 1 )
+    {
+       ++fails;
+    }    
+    
+    if ( udqs_low < 1 )
+    {
+       ++fails;
+    }
+    if ( udqs_high < 1 )
+    {
+       ++fails;
+    }    
+    if ( udqsn_low < 1 )
+    {
+       ++fails;
+    }
+    if ( udqsn_high < 1 )
+    {
+       ++fails;
+    }        
+    
+    
+
+    
+    if ( fails )
+    {
+ //       ReadTest();
+        
+ //       ShowFail("FAIL DDR3L MPR test");
+ //       exit;
+    
+    
+    }   
+*/    
+
+
+   
+    MESSAGE("ALL HIGH DQ captures = %d",all_pins_high);
+    MESSAGE("ALL LOW DQ captures = %d",all_pins_low);
+    MESSAGE("MIX of LOW/HIGH DQ = %d",mix_high_low);
+    MESSAGE("Instances of LDQS low = %d",ldqs_low);
+    MESSAGE("Instances of LDQS high = %d",ldqs_high);
+    MESSAGE("Instances of UDQSN low = %d",udqsn_low);
+    MESSAGE("Instances of UDQSN high = %d",udqsn_high);         
+      
+    MESSAGE("****************");    
+    
+    if ( fails > 0 )
+    {
+	    MESSAGE("Check data and address buses and control pins of DDR3L device U22");
+	    ShowFail("FAIL DDR3L MPR test");
+	    exit;
+    }    
+    else
+    {
+           ShowPass("PASSES DDR3L MPR test");
+    
+    }
+
+}
+        
+
+
+.END MAIN;
+
+

@@ -1,0 +1,144 @@
+ 1. Hard Reset Using TRST 
+  2. Chain A 
+ 1. State Reset Using TMS/TCK check
+  2. Chain A check
+ 1. Test Access Port (TAP) Test check
+  2. Instruction Capture Test 
+   3. Chain A check
+  2. Bypass Reg Test check
+   3. Chain A check
+   3. TAP TRANSITIONS PATH 
+    4. ENDIR IDLE; 
+    4. SIR STATES IRSELECT IRCAPTURE IRSHIFT; 
+    4. ENDDR IDLE; 
+    4. SDR STATES DRSELECT DRCAPTURE DRSHIFT; 
+  2. IDCODE Test check
+   3. Chain A check
+    4. IC1 IDCODE 
+     5. 00001001100000000001000000011101 check
+   3. TAP TRANSITIONS PATH 
+    4. ENDIR IDLE; 
+    4. SIR STATES IRSELECT IRCAPTURE IRSHIFT; 
+    4. ENDDR IDLE; 
+    4. SDR STATES DRSELECT DRCAPTURE DRSHIFT; 
+  2. RegisterLengthTest check
+   3. Chain A check
+    4. IC1 SAMPLE 
+   3. TAP TRANSITIONS PATH 
+    4. ENDIR IDLE; 
+    4. SIR STATES IRSELECT IRCAPTURE IRSHIFT; 
+    4. ENDDR IDLE; 
+    4. SDR STATES DRSELECT DRCAPTURE DRSHIFT; 
+ 1. SVF "jtag_insert.svf" 
+ 1. Register Segment Initialization 
+  2. Register length test check
+  2. Chain A check
+   3. IC1 PRELOAD 
+   3. onTAP USB JTAG Cable 
+    4. Serial Number 70200 
+    4. TCK Rate 2MHz 
+    4. Channel(A/B) B 
+   3. TAP TRANSITIONS PATH 
+    4. ENDIR IDLE; 
+    4. SIR STATES IRSELECT IRCAPTURE IRSHIFT; 
+    4. ENDDR IDLE; 
+    4. SDR STATES DRSELECT DRCAPTURE DRSHIFT; 
+ 1. Interconnect Test check
+  2. Chain A check
+   3. IC1 EXTEST 
+   3. onTAP USB JTAG Cable 
+    4. Serial Number 70200 
+    4. TCK Rate 2MHz 
+    4. Channel(A/B) B 
+   3. TAP TRANSITIONS PATH 
+    4. ENDIR IDLE; 
+    4. SIR STATES IRSELECT IRCAPTURE IRSHIFT; 
+    4. ENDDR IDLE; 
+    4. SDR STATES DRSELECT DRCAPTURE DRSHIFT; 
+  2. Interconnect Test Options 
+   3. BusWireTest check
+   3. DiagnoseOpensFaultsOnly 
+   3. OmitOpensTest 
+   3. DiagnoseHardFaultsOnly 
+   3. FinishWithPinsTristated 
+   3. GuardScanOnly 
+   3. SAMPLE/PRELOAD Instruction 
+   3. BoundaryRegisterLength Test 
+   3. MID-STATE(resistive)ShortsTest 
+   3. MilliSec_WaitBetweenScans 
+   3. OutputSwitchFactor 1 check
+   3. PullResistorTest 
+    4. test_weak0_disable_value 
+    4. test_weak1_disable_value 
+    4. test_pull0_disable_value 
+    4. test_pull1_disable_value 
+    4. test_keeper_disable_value 
+   3. AlternateDriveForCommonControlCells check
+   3. RetriesOnTestFails 0 
+   3. TestSafeCircuitsOnly 
+   3. TestNoConnectPins check
+   3. TestDifferentialPinsOnly 
+   3. StopTestAfter_Max_Fails 800 
+   3. Use '0' as default TDI don't care bit value. check
+   3. Use '1' as default TDI don't care bit value. 
+   3. WriteBSDLfileInSVF check
+   3. DiagnosticsFromHeaderPins 
+   3. NullMaskBits 
+  2. IEEE 1149.6 AC TEST Options 
+   3. ExtestPulseInstruction 
+   3. ExtestTrainInstruction 
+   3. ExtestToggleInstruction 
+   3. TckClocksInRunTestIdle 
+  2. Test Generation Options 
+   3. CreateTestReport check
+   3. TestCompleteBeepFrequency 2000 check
+   3. TestCompleteBeepDuration 175 check
+   3. Intel SVF Format Option 
+   3. Omit new line chars in SVF scans 
+  2. Scan Path Linker Options 
+   3. ScanStaEnable 
+   3. ScanStaModeReg 500 
+   3. ScanStaBackPlaneAddr 500 
+   3. ScanStaPads 500 
+ 1. GenRad In-Circuit Test (ICT) 
+  2. MaxNodesPerBurst 
+  2. WriteGenRadAte 
+  2. Include Diagnostic Messages 
+  2. FAST option 
+  2. Use FLOOPS 
+  2. Max FLOOP Size 
+  2. Insert Labels in DTS 
+  2. Use package pin names vs port names 
+  2. Enable comments on each DTS line 
+  2. Include DISABLES (HIGHZ test) 
+  2. Include FAST option in DISABLES 
+  2. Include LOOPS in DISABLES 
+  2. Create HIGHZ Sequence Only 
+  2. Do not use tester probes/nails 
+  2. Use '0' as default TDI don't care bit value. 
+  2. Use '1' as default TDI don't care bit value. 
+ 1. Cluster Test 
+  2. Chain A 
+   3. IC1 EXTEST 
+   3. onTAP USB JTAG Cable 
+    4. Serial Number 70200 
+    4. TCK Rate 2MHz 
+    4. Channel(A/B) 
+   3. TAP TRANSITIONS PATH 
+    4. ENDIR IDLE; 
+    4. SIR STATES IRSELECT IRCAPTURE IRSHIFT; 
+    4. ENDDR IDLE; 
+    4. SDR STATES DRSELECT DRCAPTURE DRSHIFT; 
+  2. Cluster Test Options 
+   3. ClusterTestCircuitLocation 
+   3. MilliSec_WaitBetweenScans 
+   3. DTS_ClusterTestModel 
+   3. PackagePinStyle 
+   3. Use '0' as default TDI don't care bit value. 
+   3. Use '1' as default TDI don't care bit value. 
+   3. SAMPLE/PRELOAD Instruction check
+   3. BoundaryRegisterLength Test 
+ 1. State Reset Using TMS/TCK check
+  2. Chain A check
+ 1. SVF_Version 1 check
+ 1. Control file for Multiple UUTs "UUT Control.txt" 

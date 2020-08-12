@@ -1,0 +1,58 @@
+
+//DDR3(L)-2Gb SDRAM NT5CB(C)256M8JQ/NT5CB(C)128M16JR 
+//
+//96-PIN TFBGA Package (X16)
+
+.HEAD;
+.BIDIR_TRI(
+  A2=DQU5,
+  A3=DQU7,
+  A7=DQU4,
+  B7=DQUSn,
+  B8=DQU6,
+  C2-DQU3.
+  C3=DQU1,
+  C7=DQSU,
+  C8=DQ2,
+  D3=DMU,
+  D7=DQU0,
+  E3=DQ0,
+  E7=DML,
+  F2=DQL2,
+  F3=DQLS,
+  F7=DQL1,
+  F8=DQL3,
+  G2=DQL6,
+  G3=DQSLn
+  H3=DQL4,
+  H7=DQL7,
+  H8=DQL5,
+  J3=RAS,
+  J7=CLK,
+  K1=ODT,
+  K3=CAS,
+  K7=nCLK,
+  K9=CKE,
+  L2=CS,
+  L3=WE,
+  L7=A10,
+  L8=ZQ,
+  M2=BA0,
+  M3=BA2,
+  N2=A3,
+  N3=A0,
+  N7=A12,
+  N8=BA1,
+  P2=A5,
+  P3=A2,
+  P7=A1,
+  P8=A4,
+  R2=A7,
+  R3=A9,
+  R7=A11,
+  R8=A6,
+  T2=RSTN,
+  T3=A13,
+  T8=A8);
+
+.END HEAD;

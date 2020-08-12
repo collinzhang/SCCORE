@@ -1,0 +1,735 @@
+// interconnect.svf, Version 1, Created by Flynn Systems onTAP Boundary Scan Software Build 4794,  Wed Aug 12 07:47:02 2020
+
+! DeviceTypes: IC1=VYBRID_364_F 
+! onTAP Option Selections: 
+!  (ICT)Single Device Tests Option................NOT SELECTED 
+!  Allow Self Capture(monitoring) on BIDIR Pins...SELECTED 
+!  Test All Bus Pins(BUS-WIRE Test)...............SELECTED 
+!  Test PULL-UP and PULL-DOWN Resistors...........NOT SELECTED 
+!  (ICT)Do Not Use Tester Probes..................NOT SELECTED 
+
+! onTAP Test and Chain Selections: 
+!  Chain    Device                Type                  Test                           INSTRUCTION_CAPTURE           IDCODE                                       
+!  A        IC1                   VYBRID_364_F          Interconnect                   0001                          00011001100000000001000000011101 
+
+! SVF PIO Characters: H = Drive Logic 1,  L = Drive Logic 0.
+!                     U = Detect Logic 1, D = Detect Logic 0.
+!                     Z = Drive High Impedance, X = Detect Unknown.
+!PIOMAP  Map package pins to pin names.
+!        ATE drives and senses these pins.
+! Begin Test Program 
+ENDIR IDLE; 
+ENDDR IDLE; 
+HDR    0; 
+HIR    0; 
+TDR    0; 
+TIR    0; 
+
+! Begin BSD cell and port map for IC1, VYBRID_364_F
+! Pin count = 183 
+! Pin connections and board level I/O are shown.
+!  num cell   port        pin     function safe ccell disv rslt I/O joins signal              probe
+! 
+!    0 BC_2  *                     control    0                                                    
+!    1 BC_2  DDR_RESET     D6      output3    X     0    0    Z   O       DDR_RESET                
+!    2 BC_2  *                    internal    X                                                    
+!    3 BC_2  *                    internal    X                                                    
+!    4 BC_2  *                    internal    X                                                    
+!    5 BC_2  *                    internal    X                                                    
+!    6 BC_2  *                    internal    X                                                    
+!    7 BC_2  *                    internal    X                                                    
+!    8 BC_2  *                     control    0                                                    
+!    9 BC_2  DDR_ODT_1_    B1      output3    X     8    0    Z   O       N040331                  
+!   10 BC_2  *                     control    0                                                    
+!   11 BC_2  DDR_ODT_0_    C4      output3    X    10    0    Z   O       DDR_ODT0                 
+!   12 BC_2  *                     control    0                                                    
+!   13 BC_2  DDR_WE_b      C6      output3    X    12    0    Z   O       DDR_WE#                  
+!   14 BC_2  *                     control    0                                                    
+!   15 BC_2  DDR_RAS_b     A4      output3    X    14    0    Z   O       DDR_RAS#                 
+!   16 BC_2  *                     control    0                                                    
+!   17 BC_7  DDR_DQS_0_    D3        bidir    X    16    0    Z   B       DDR_DQS[0]               
+!   18 BC_2  *                     control    0                                                    
+!   19 BC_7  DDR_DQS_1_    E1        bidir    X    18    0    Z   B       DDR_DQS[1]               
+!   20 BC_2  *                     control    0                                                    
+!   21 BC_7  DDR_DQM_0_    J4        bidir    X    20    0    Z   B       DDR_DM[0]                
+!   22 BC_2  *                     control    0                                                    
+!   23 BC_7  DDR_DQM_1_    G2        bidir    X    22    0    Z   B       DDR_DM[1]                
+!   24 BC_2  *                     control    0                                                    
+!   25 BC_7  DDR_D_0_      F4        bidir    X    24    0    Z   B       DDR_DQ[0]                
+!   26 BC_2  *                     control    0                                                    
+!   27 BC_7  DDR_D_1_      H3        bidir    X    26    0    Z   B       DDR_DQ[1]                
+!   28 BC_2  *                     control    0                                                    
+!   29 BC_7  DDR_D_2_      D4        bidir    X    28    0    Z   B       DDR_DQ[2]                
+!   30 BC_2  *                     control    0                                                    
+!   31 BC_7  DDR_D_3_      G4        bidir    X    30    0    Z   B       DDR_DQ[3]                
+!   32 BC_2  *                     control    0                                                    
+!   33 BC_7  DDR_D_4_      F3        bidir    X    32    0    Z   B       DDR_DQ[4]                
+!   34 BC_2  *                     control    0                                                    
+!   35 BC_7  DDR_D_5_      J3        bidir    X    34    0    Z   B       DDR_DQ[5]                
+!   36 BC_2  *                     control    0                                                    
+!   37 BC_7  DDR_D_6_      C3        bidir    X    36    0    Z   B       DDR_DQ[6]                
+!   38 BC_2  *                     control    0                                                    
+!   39 BC_7  DDR_D_7_      G3        bidir    X    38    0    Z   B       DDR_DQ[7]                
+!   40 BC_2  *                     control    0                                                    
+!   41 BC_7  DDR_D_8_      J1        bidir    X    40    0    Z   B       DDR_DQ[8]                
+!   42 BC_2  *                     control    0                                                    
+!   43 BC_7  DDR_D_9_      D1        bidir    X    42    0    Z   B       DDR_DQ[9]                
+!   44 BC_2  *                     control    0                                                    
+!   45 BC_7  DDR_D_10_     H1        bidir    X    44    0    Z   B       DDR_DQ[10]               
+!   46 BC_2  *                     control    0                                                    
+!   47 BC_7  DDR_D_11_     E2        bidir    X    46    0    Z   B       DDR_DQ[11]               
+!   48 BC_2  *                     control    0                                                    
+!   49 BC_7  DDR_D_12_     G1        bidir    X    48    0    Z   B       DDR_DQ[12]               
+!   50 BC_2  *                     control    0                                                    
+!   51 BC_7  DDR_D_13_     C1        bidir    X    50    0    Z   B       DDR_DQ[13]               
+!   52 BC_2  *                     control    0                                                    
+!   53 BC_7  DDR_D_14_     H2        bidir    X    52    0    Z   B       DDR_DQ[14]               
+!   54 BC_2  *                     control    0                                                    
+!   55 BC_7  DDR_D_15_     D2        bidir    X    54    0    Z   B       DDR_DQ[15]               
+!   56 BC_2  *                     control    0                                                    
+!   57 BC_2  DDR_CS_b_0_   C5      output3    X    56    0    Z   O       DDR_CS#                  
+!   58 BC_2  *                     control    0                                                    
+!   59 BC_2  DDR_CLK_0_    A2      output3    X    58    0    Z   O       DDR_CLK                  
+!   60 BC_2  *                     control    0                                                    
+!   61 BC_2  DDR_CKE_0_    A5      output3    X    60    0    Z   O       DDR_CKE                  
+!   62 BC_2  *                     control    0                                                    
+!   63 BC_2  DDR_CAS_b     B4      output3    X    62    0    Z   O       DDR_CAS#                 
+!   64 BC_2  *                     control    0                                                    
+!   65 BC_2  DDR_BA_0_     C8      output3    X    64    0    Z   O       DDR_BS[0]                
+!   66 BC_2  *                     control    0                                                    
+!   67 BC_2  DDR_BA_1_     C9      output3    X    66    0    Z   O       DDR_BS[1]                
+!   68 BC_2  *                     control    0                                                    
+!   69 BC_2  DDR_BA_2_     D8      output3    X    68    0    Z   O       DDR_BS[2]                
+!   70 BC_2  *                     control    0                                                    
+!   71 BC_2  DDR_A_0_      C7      output3    X    70    0    Z   O       DDR_A[0]                 
+!   72 BC_2  *                     control    0                                                    
+!   73 BC_2  DDR_A_1_     C11      output3    X    72    0    Z   O       DDR_A[1]                 
+!   74 BC_2  *                     control    0                                                    
+!   75 BC_2  DDR_A_2_      A8      output3    X    74    0    Z   O       DDR_A[2]                 
+!   76 BC_2  *                     control    0                                                    
+!   77 BC_2  DDR_A_3_      B7      output3    X    76    0    Z   O       DDR_A[3]                 
+!   78 BC_2  *                     control    0                                                    
+!   79 BC_2  DDR_A_4_      A6      output3    X    78    0    Z   O       DDR_A[4]                 
+!   80 BC_2  *                     control    0                                                    
+!   81 BC_2  DDR_A_5_      B6      output3    X    80    0    Z   O       DDR_A[5]                 
+!   82 BC_2  *                     control    0                                                    
+!   83 BC_2  DDR_A_6_      A9      output3    X    82    0    Z   O       DDR_A[6]                 
+!   84 BC_2  *                     control    0                                                    
+!   85 BC_2  DDR_A_7_      A7      output3    X    84    0    Z   O       DDR_A[7]                 
+!   86 BC_2  *                     control    0                                                    
+!   87 BC_2  DDR_A_8_     A11      output3    X    86    0    Z   O       DDR_A[8]                 
+!   88 BC_2  *                     control    0                                                    
+!   89 BC_2  DDR_A_9_      B9      output3    X    88    0    Z   O       DDR_A[9]                 
+!   90 BC_2  *                     control    0                                                    
+!   91 BC_2  DDR_A_10_     D7      output3    X    90    0    Z   O       DDR_A[10]                
+!   92 BC_2  *                     control    0                                                    
+!   93 BC_2  DDR_A_11_    D10      output3    X    92    0    Z   O       DDR_A[11]                
+!   94 BC_2  *                     control    0                                                    
+!   95 BC_2  DDR_A_12_    C10      output3    X    94    0    Z   O       DDR_A[12]                
+!   96 BC_2  *                     control    0                                                    
+!   97 BC_2  DDR_A_13_    A10      output3    X    96    0    Z   O       DDR_A[13]                
+!   98 BC_2  *                     control    0                                                    
+!   99 BC_2  DDR_A_14_     D9      output3    X    98    0    Z   O       DDR_A[14]                
+!  100 BC_2  *                     control    0                                                    
+!  101 BC_2  DDR_A_15_    B10      output3    X   100    0    Z   O       DDR_A[15]                
+!  102 BC_2  *                     control    0                                                    
+!  103 BC_7  PTA7         V15        bidir    X   102    0    Z   B       nPCE2/CIF_PCLK           
+!  104 BC_2  *                     control    0                                                    
+!  105 BC_7  PTE22        W17        bidir    X   104    0    Z   B       DCU0_B1                  
+!  106 BC_2  *                     control    0                                                    
+!  107 BC_7  PTE21        V16        bidir    X   106    0    Z   B       DCU0_B0                  
+!  108 BC_2  *                     control    0                                                    
+!  109 BC_7  PTE14        W15        bidir    X   108    0    Z   B       DCU0_G1                  
+!  110 BC_2  *                     control    0                                                    
+!  111 BC_7  PTE13        Y16        bidir    X   110    0    Z   B       DCU0_G0                  
+!  112 BC_2  *                     control    0                                                    
+!  113 BC_7  PTE6         W16        bidir    X   112    0    Z   B       DCU0_R1                  
+!  114 BC_2  *                     control    0                                                    
+!  115 BC_7  PTE5         T16        bidir    X   114    0    Z   B       DCU0_R0                  
+!  116 BC_2  *                     control    0                                                    
+!  117 BC_7  PTE3         Y15        bidir    X   116    0    Z   B       USBH_OC                  
+!  118 BC_2  *                     control    0                                                    
+!  119 BC_7  PTC31         W5        bidir    X   118    0    Z   B       nVDD_FAULT/SENSE          
+!  120 BC_2  *                     control    0                                                    
+!  121 BC_7  PTD16        D20        bidir    X   120    0    Z   B       NAND_D0                  
+!  122 BC_2  *                     control    0                                                    
+!  123 BC_7  PTD17        E20        bidir    X   122    0    Z   B       NAND_D1                  
+!  124 BC_2  *                     control    0                                                    
+!  125 BC_7  PTD18        E18        bidir    X   124    0    Z   B       NAND_D2                  
+!  126 BC_2  *                     control    0                                                    
+!  127 BC_7  PTD19        F16        bidir    X   126    0    Z   B       NAND_D3                  
+!  128 BC_2  *                     control    0                                                    
+!  129 BC_7  PTD20        F17        bidir    X   128    0    Z   B       NAND_D4                  
+!  130 BC_2  *                     control    0                                                    
+!  131 BC_7  PTD21        F19        bidir    X   130    0    Z   B       NAND_D5                  
+!  132 BC_2  *                     control    0                                                    
+!  133 BC_7  PTD22        F20        bidir    X   132    0    Z   B       NAND_D6                  
+!  134 BC_2  *                     control    0                                                    
+!  135 BC_7  PTD23        G20        bidir    X   134    0    Z   B       NAND_D7                  
+!  136 BC_2  *                     control    0                                                    
+!  137 BC_7  PTD24        G19        bidir    X   136    0    Z   B       ADDRESS17                
+!  138 BC_2  *                     control    0                                                    
+!  139 BC_7  PTD25        G18        bidir    X   138    0    Z   B       ADDRESS18                
+!  140 BC_2  *                     control    0                                                    
+!  141 BC_7  PTD26        G16        bidir    X   140    0    Z   B       EXT_IO2                  
+!  142 BC_2  *                     control    0                                                    
+!  143 BC_7  PTD27        H16        bidir    X   142    0    Z   B       nEXT_CS1                 
+!  144 BC_2  *                     control    0                                                    
+!  145 BC_7  PTD28        H17        bidir    X   144    0    Z   B       nIOIS16                  
+!  146 BC_2  *                     control    0                                                    
+!  147 BC_7  PTD29        H18        bidir    X   146    0    Z   B       nPWE                     
+!  148 BC_2  *                     control    0                                                    
+!  149 BC_7  PTD30        H20        bidir    X   148    0    Z   B       PS2_SCL2/CIF_D           
+!  150 BC_2  *                     control    0                                                    
+!  151 BC_7  PTD31        J20        bidir    X   150    0    Z   B       nEXT_CS2                 
+!  152 BC_2  *                     control    0                                                    
+!  153 BC_7  PTC17         R4        bidir    X   152    0    Z   B       RMII_TXEN_R              
+!  154 BC_2  *                     control    0                                                    
+!  155 BC_7  PTC16         R3        bidir    X   154    0    Z   B       RMII_TXD0_R              
+!  156 BC_2  *                     control    0                                                    
+!  157 BC_7  PTC15         P2        bidir    X   156    0    Z   B       RMII_TXD1_R              
+!  158 BC_2  *                     control    0                                                    
+!  159 BC_7  PTC14         R1        bidir    X   158    0    Z   B       RMII_RXER                
+!  160 BC_2  *                     control    0                                                    
+!  161 BC_7  PTC13         P1        bidir    X   160    0    Z   B       RMII_RXD0                
+!  162 BC_2  *                     control    0                                                    
+!  163 BC_7  PTC12         P3        bidir    X   162    0    Z   B       RMII_RXD1                
+!  164 BC_2  *                     control    0                                                    
+!  165 BC_7  PTC11         P4        bidir    X   164    0    Z   B       RMII_CRS_DV              
+!  166 BC_2  *                     control    0                                                    
+!  167 BC_7  PTC10        U15        bidir    X   166    0    Z   B       RMII_MDIO_R              
+!  168 BC_2  *                     control    0                                                    
+!  169 BC_7  PTC9         T15        bidir    X   168    0    Z   B       RMII_MDC_R               
+!  170 BC_2  *                     control    0                                                    
+!  171 BC_7  PTB9         J19        bidir    X   170    0    Z   B       PWM_D/CIF_D6             
+!  172 BC_2  *                     control    0                                                    
+!  173 BC_7  PTB8         J16        bidir    X   172    0    Z   B       PWM_B                    
+!  174 BC_2  *                     control    0                                                    
+!  175 BC_7  PTA31        P16        bidir    X   174    0    Z   B       UART_A_DSR               
+!  176 BC_2  *                     control    0                                                    
+!  177 BC_7  PTA30        P17        bidir    X   176    0    Z   B       UART_A_RI                
+!  178 BC_2  *                     control    0                                                    
+!  179 BC_7  PTA29        P18        bidir    X   178    0    Z   B       MMC_DAT3                 
+!  180 BC_2  *                     control    0                                                    
+!  181 BC_7  PTA28        P20        bidir    X   180    0    Z   B       MMC_DAT2                 
+!  182 BC_2  *                     control    0                                                    
+!  183 BC_7  PTA27        R20        bidir    X   182    0    Z   B       MMC_DAT1                 
+!  184 BC_2  *                     control    0                                                    
+!  185 BC_7  PTA26        R19        bidir    X   184    0    Z   B       MMC_DAT0                 
+!  186 BC_2  *                     control    0                                                    
+!  187 BC_7  PTA25        R17        bidir    X   186    0    Z   B       MMC_CMD                  
+!  188 BC_2  *                     control    0                                                    
+!  189 BC_7  PTA24        R16        bidir    X   188    0    Z   B       MMC_CLK                  
+!  190 BC_2  *                     control    0                                                    
+!  191 BC_7  PTA23        C17        bidir    X   190    0    Z   B       SAI2_PTA23            GND
+!  192 BC_2  *                     control    0                                                    
+!  193 BC_7  PTA22        E17        bidir    X   192    0    Z   B       SAI2_RX_DATA             
+!  194 BC_2  *                     control    0                                                    
+!  195 BC_7  PTA21        D18        bidir    X   194    0    Z   B       UART_A_DCD               
+!  196 BC_2  *                     control    0                                                    
+!  197 BC_7  PTA20        B18        bidir    X   196    0    Z   B       UART_A_DTR               
+!  198 BC_2  *                     control    0                                                    
+!  199 BC_7  PTA6          N5        bidir    X   198    0    Z   B       RMII_CLKOUT_50MHz_R          
+!  200 BC_2  *                     control    0                                                    
+!  201 BC_7  PTE28        K16        bidir    X   200    0    Z   B       DCU0_B7                  
+!  202 BC_2  *                     control    0                                                    
+!  203 BC_7  PTE27        B20        bidir    X   202    0    Z   B       DCU0_B6                  
+!  204 BC_2  *                     control    0                                                    
+!  205 BC_7  PTE26        C20        bidir    X   204    0    Z   B       DCU0_B5                  
+!  206 BC_2  *                     control    0                                                    
+!  207 BC_7  PTE25        C19        bidir    X   206    0    Z   B       DCU0_B4                  
+!  208 BC_2  *                     control    0                                                    
+!  209 BC_7  PTE24        D19        bidir    X   208    0    Z   B       DCU0_B3                  
+!  210 BC_2  *                     control    0                                                    
+!  211 BC_7  PTC8          N4        bidir    X   210    0    Z   B       nPPEN/CIF_D8             
+!  212 BC_2  *                     control    0                                                    
+!  213 BC_7  PTC7          N2        bidir    X   212    0    Z   B       PWM_A/CIF_D7             
+!  214 BC_2  *                     control    0                                                    
+!  215 BC_7  PTC6          N1        bidir    X   214    0    Z   B       PWM_D/CIF_D6             
+!  216 BC_2  *                     control    0                                                    
+!  217 BC_7  PTC5          M1        bidir    X   216    0    Z   B       nPOE/CIF_D5              
+!  218 BC_2  *                     control    0                                                    
+!  219 BC_7  PTC4          L2        bidir    X   218    0    Z   B       PBVD1/CIF_D4             
+!  220 BC_2  *                     control    0                                                    
+!  221 BC_7  PTC3          M3        bidir    X   220    0    Z   B       nPIOR/CIF_D3             
+!  222 BC_2  *                     control    0                                                    
+!  223 BC_7  PTC2          M5        bidir    X   222    0    Z   B       nPIOW/CIF_D2             
+!  224 BC_2  *                     control    0                                                    
+!  225 BC_7  PTC1          L5        bidir    X   224    0    Z   B       nPREG/CIF_D1             
+!  226 BC_2  *                     control    0                                                    
+!  227 BC_7  PTC0          L4        bidir    X   226    0    Z   B       BL_ON/CIF_D0             
+!  228 BC_2  *                     control    0                                                    
+!  229 BC_7  PTB17        A15        bidir    X   228    0    Z   B       PS2_SDA1                 
+!  230 BC_2  *                     control    0                                                    
+!  231 BC_7  PTB16        C14        bidir    X   230    0    Z   B       PS2_SCL1                 
+!  232 BC_2  *                     control    0                                                    
+!  233 BC_7  PTB15        A14        bidir    X   232    0    Z   B       I2C_SDA                  
+!  234 BC_2  *                     control    0                                                    
+!  235 BC_7  PTB14        B14        bidir    X   234    0    Z   B       I2C_SCL                  
+!  236 BC_2  *                     control    0                                                    
+!  237 BC_7  PTB12        E13        bidir    X   236    0    Z   B       UART_A_RTS               
+!  238 BC_2  *                     control    0                                                    
+!  239 BC_7  PTB11        D14        bidir    X   238    0    Z   B       UART_A_RXD               
+!  240 BC_2  *                     control    0                                                    
+!  241 BC_7  PTB10        B15        bidir    X   240    0    Z   B       UART_A_TXD               
+!  242 BC_2  *                     control    0                                                    
+!  243 BC_7  PTA19         U6        bidir    X   242    0    Z   B       SAI2_TX_SYNC             
+!  244 BC_2  *                     control    0                                                    
+!  245 BC_7  PTA18         V6        bidir    X   244    0    Z   B       SAI2_TX_DATA             
+!  246 BC_2  *                     control    0                                                    
+!  247 BC_7  PTA17         Y6        bidir    X   246    0    Z   B       ADDRESS25                
+!  248 BC_2  *                     control    0                                                    
+!  249 BC_7  PTA16         Y5        bidir    X   248    0    Z   B       SAI2_TX_BCLK             
+!  250 BC_2  *                     control    0                                                    
+!  251 BC_7  PTA12         L3        bidir    X   250    0    Z   B       nPWAIT                   
+!  252 BC_2  *                     control    0                                                    
+!  253 BC_7  PTE20        A12        bidir    X   252    0    Z   B       DCU0_G7                  
+!  254 BC_2  *                     control    0                                                    
+!  255 BC_7  PTE19        K18        bidir    X   254    0    Z   B       DCU0_G6                  
+!  256 BC_2  *                     control    0                                                    
+!  257 BC_7  PTE18        K19        bidir    X   256    0    Z   B       DCU0_G5                  
+!  258 BC_2  *                     control    0                                                    
+!  259 BC_7  PTE17        K20        bidir    X   258    0    Z   B       DCU0_G4                  
+!  260 BC_2  *                     control    0                                                    
+!  261 BC_7  PTE16        L20        bidir    X   260    0    Z   B       DCU0_G3                  
+!  262 BC_2  *                     control    0                                                    
+!  263 BC_7  PTE15        L18        bidir    X   262    0    Z   B       DCU0_G2                  
+!  264 BC_2  *                     control    0                                                    
+!  265 BC_7  PTE12        L17        bidir    X   264    0    Z   B       DCU0_R7                  
+!  266 BC_2  *                     control    0                                                    
+!  267 BC_7  PTE11        L16        bidir    X   266    0    Z   B       DCU0_R6                  
+!  268 BC_2  *                     control    0                                                    
+!  269 BC_7  PTE10        M16        bidir    X   268    0    Z   B       DCU0_R5                  
+!  270 BC_2  *                     control    0                                                    
+!  271 BC_7  PTE9         M17        bidir    X   270    0    Z   B       DCU0_R4                  
+!  272 BC_2  *                     control    0                                                    
+!  273 BC_7  PTE8         M19        bidir    X   272    0    Z   B       DCU0_R3                  
+!  274 BC_2  *                     control    0                                                    
+!  275 BC_7  PTE7         M20        bidir    X   274    0    Z   B       DCU0_R2                  
+!  276 BC_2  *                     control    0                                                    
+!  277 BC_7  PTE4         N20        bidir    X   276    0    Z   B       DCU0_DE                  
+!  278 BC_2  *                     control    0                                                    
+!  279 BC_7  PTE2         N19        bidir    X   278    0    Z   B       DCU0_PCLK                
+!  280 BC_2  *                     control    0                                                    
+!  281 BC_7  PTE1         N18        bidir    X   280    0    Z   B       DCU0_VSYNC               
+!  282 BC_2  *                     control    0                                                    
+!  283 BC_7  PTE0         N16        bidir    X   282    0    Z   B       DCU0_HSYNC               
+!  284 BC_2  *                     control    0                                                    
+!  285 BC_7  PTC30         T8        bidir    X   284    0    Z   B       RDY                      
+!  286 BC_2  *                     control    0                                                    
+!  287 BC_7  PTC29        C16        bidir    X   286    0    Z   B       USBC_DET                 
+!  288 BC_2  *                     control    0                                                    
+!  289 BC_7  PTC28        E15        bidir    X   288    0    Z   B       NAND_CLE                 
+!  290 BC_2  *                     control    0                                                    
+!  291 BC_7  PTC27        E16        bidir    X   290    0    Z   B       NAND_ALE                 
+!  292 BC_2  *                     control    0                                                    
+!  293 BC_7  PTC26        D16        bidir    X   292    0    Z   B       NAND_BSY0                
+!  294 BC_2  *                     control    0                                                    
+!  295 BC_7  PTB28        A16        bidir    X   294    0    Z   B       RDnWR                    
+!  296 BC_2  *                     control    0                                                    
+!  297 BC_7  PTB27         U8        bidir    X   296    0    Z   B       NAND_RE_N                
+!  298 BC_2  *                     control    0                                                    
+!  299 BC_7  PTB26        A17        bidir    X   298    0    Z   B       nEXT_CS0_CAN             
+!  300 BC_2  *                     control    0                                                    
+!  301 BC_7  PTB25        B17        bidir    X   300    0    Z   B       NAND_CE_N                
+!  302 BC_2  *                     control    0                                                    
+!  303 BC_7  PTB24        A18        bidir    X   302    0    Z   B       NAND_WE_N                
+!  304 BC_2  *                     control    0                                                    
+!  305 BC_7  PTB23        A19        bidir    X   304    0    Z   B       SAI0_TX_BCLK             
+!  306 BC_2  *                     control    0                                                    
+!  307 BC_7  PTD13        T18        bidir    X   306    0    Z   B       nPXCVREN                 
+!  308 BC_2  *                     control    0                                                    
+!  309 BC_7  PTD12        T19        bidir    X   308    0    Z   B       PRST/CIF_MCLK            
+!  310 BC_2  *                     control    0                                                    
+!  311 BC_7  PTD11        T20        bidir    X   310    0    Z   B       ADDRESS16                
+!  312 BC_2  *                     control    0                                                    
+!  313 BC_7  PTD10        U20        bidir    X   312    0    Z   B       EXT_IO0/USB_ID           
+!  314 BC_2  *                     control    0                                                    
+!  315 BC_7  PTD9         U18        bidir    X   314    0    Z   B       EXT_IO1                  
+!  316 BC_2  *                     control    0                                                    
+!  317 BC_7  PTD8         U17        bidir    X   316    0    Z   B       SSPSCLK                  
+!  318 BC_2  *                     control    0                                                    
+!  319 BC_7  PTD7         V19        bidir    X   318    0    Z   B       SSPTXD                   
+!  320 BC_2  *                     control    0                                                    
+!  321 BC_7  PTD6         V20        bidir    X   320    0    Z   B       SSPRXD                   
+!  322 BC_2  *                     control    0                                                    
+!  323 BC_7  PTD5         W20        bidir    X   322    0    Z   B       SSPFRM                   
+!  324 BC_2  *                     control    0                                                    
+!  325 BC_7  PTD4         W19        bidir    X   324    0    Z   B       USBH_PEN                 
+!  326 BC_2  *                     control    0                                                    
+!  327 BC_7  PTD3         Y19        bidir    X   326    0    Z   B       UART_B_CTS               
+!  328 BC_2  *                     control    0                                                    
+!  329 BC_7  PTD2         V18        bidir    X   328    0    Z   B       UART_B_RTS               
+!  330 BC_2  *                     control    0                                                    
+!  331 BC_7  PTD1         Y18        bidir    X   330    0    Z   B       UART_B_RXD               
+!  332 BC_2  *                     control    0                                                    
+!  333 BC_7  PTD0         Y17        bidir    X   332    0    Z   B       UART_B_TXD               
+!  334 BC_2  *                     control    0                                                    
+!  335 BC_7  PTB22        D12        bidir    X   334    0    Z   B       PBVD2/CIF_D11            
+!  336 BC_2  *                     control    0                                                    
+!  337 BC_7  PTB21        E12        bidir    X   336    0    Z   B       CAN_INT                  
+!  338 BC_2  *                     control    0                                                    
+!  339 BC_7  PTB20        A13        bidir    X   338    0    Z   B       MMC_CD/WAKE0             
+!  340 BC_2  *                     control    0                                                    
+!  341 BC_7  PTB19        C13        bidir    X   340    0    Z   B       PRDY/WAKE1               
+!  342 BC_2  *                     control    0                                                    
+!  343 BC_7  PTB18        B12        bidir    X   342    0    Z   B       PS2_SDA2/CIF_D9          
+!  344 BC_2  *                     control    0                                                    
+!  345 BC_7  PTB13        D15        bidir    X   344    0    Z   B       UART_A_CTS               
+!  346 BC_2  *                     control    0                                                    
+!  347 BC_7  PTB7         D13        bidir    X   346    0    Z   B       PCD/CIF_FV               
+!  348 BC_2  *                     control    0                                                    
+!  349 BC_7  PTB6          W8        bidir    X   348    0    Z   B       nPCE1/CIF_LV             
+!  350 BC_2  *                     control    0                                                    
+!  351 BC_7  PTB5          Y8        bidir    X   350    0    Z   B       UART_C_RXD               
+!  352 BC_2  *                     control    0                                                    
+!  353 BC_7  PTB4          Y7        bidir    X   352    0    Z   B       UART_C_TXD               
+!  354 BC_2  *                     control    0                                                    
+!  355 BC_7  PTB3          W7        bidir    X   354    0    Z   B       nBATT_FAULT/SENSE          
+!  356 BC_2  *                     control    0                                                    
+!  357 BC_7  PTB2          V7        bidir    X   356    0    Z   B       PTB2_WKPU2               
+!  358 BC_2  *                     control    0                                                    
+!  359 BC_7  PTB1          T7        bidir    X   358    0    Z   B       PWM_C                    
+!  360 BC_2  *                     control    0                                                    
+!  361 BC_7  PTB0          T6        bidir    X   360    0    Z   B       PWM_A/CIF_D7             
+!  362 BC_2  *                     control    0                                                    
+!  363 BC_7  PTE23        J17        bidir    X   362    0    Z   B       DCU0_B2                  
+!     -    -  JTDI        K2    JTAG TDI                                 JTAG_TDI                 
+!     -    -  JTDO        K1    JTAG TDO                                 JTAG_TDO                 
+!     -    -  JTMS        L1    JTAG TMS                                 PTA11_JTMS_SWDIO          
+!     -    -  JTCLK       K4    JTAG TCK                                 JTAG_TCK                 
+! End BSD cell and port map for IC1
+!
+! BSD instructions for IC1
+!    BYPASS   1111 
+!    EXTEST   0100 
+!    IDCODE   0000 
+!    SAMPLE   0010 
+!   PRELOAD   0010 
+!    SAMPLE   0011 
+!     CLAMP   1101 
+!     HIGHZ   0101 
+
+!   CAPTURE   0001 
+!      MASK   1111 
+!
+! End BSD instructions for IC1
+
+
+ TAPMAP( TDI=IC1.IC1_JTDI, TDO=IC1.IC1_JTDO, TMS=IC1.IC1_JTMS, TCK=IC1.IC1_JTCLK ); chain=A 
+
+ TAPMAP( TDI=IC1.IC1_JTDI, TDO=IC1.IC1_JTDO, TMS=IC1.IC1_JTMS, TCK=IC1.IC1_JTCLK ); chain=A 
+
+ STATE RESET;  !chain = A 
+
+ENDIR IDLE; ! Chain A 
+
+ENDDR IDLE; ! Chain A 
+
+! Test Vector 1   Scan out IDCODES
+ENDIR IDLE;
+! IC1 IR => IDCODE 
+! IC1 IR => IDCODE (IR Cells = 4, TR Cells = 32)
+SIR      4  TDI (0) TDO (1) MASK (0);
+! Read Diagnostics 1   Chain A
+
+SDR     32 TDI (1980101D)  TDO (1980101D) MASK (00000000);! Read Diagnostics 2   Chain A
+
+! TestMode = SHORTS 
+! Interconnect Test..check for stuck-ats and shorts.
+! Apply WAGNER Interconnect Patterns.
+! Run binary count vector pattern for shorts testing.
+! Test for OPENS or STUCK HIGH 
+
+! Test Vector 2   SHORTS,OPENS UPDATE   
+ENDIR IDLE;
+! IC1 IR => EXTEST 
+! IC1 IR => EXTEST (IR Cells = 4, TR Cells = 364)
+SIR      4  TDI (4) TDO (1) MASK (0);
+
+! Freescal Errata Method one
+!enable all outputs while in EXTEST
+SDR    364 TDI (FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFFFF 
+                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03)   
+           TDO (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000)  
+           MASK (000000000000000000000000000000000000000000000000 
+                0000000000000000000000000000000000000000000); ! Test Data
+                
+! IC1 IR => CLAMP (IR Cells = 4, TR Cells = 364)
+SIR      4  TDI (D) TDO (0) MASK (0);     
+
+! IC1 IR => EXTEST (IR Cells = 4, TR Cells = 364)
+SIR      4  TDI (4) TDO (1) MASK (0);
+
+
+! Test Vector 2   SHORTS,OPENS CAPTURE 
+! Read Diagnostics 3   Chain A
+
+SDR    364 TDI (C7777777777777777777777777777777777779DDDDD9DDDD 
+                DDDDDDDDDDDDDDDDDC00000000000DDDDDDDDDD0000)   
+           TDO (0000000000000000000000000000000000000000000800000 
+                000000000000000000000000000000000000000000)  
+           MASK (000000000000000000000000000000000000000000000000 
+                0000000000000000000000000000000000000000000); ! Test Data
+
+! Test for OPENS or STUCK LOW 
+
+! Test Vector 3   SHORTS,OPENS UPDATE   
+
+! Test Vector 3   SHORTS,OPENS CAPTURE 
+
+SDR    364 TDI (6DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD377777B7777 
+                7777777777777777740000000000077777777770000)   
+           TDO (8222222222222222222222222222222222222888888888888 
+                888888888888888880000000000088888888880000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+! Test for OPENS or STUCK HIGH 
+
+! Test Vector 4   SHORTS,OPENS UPDATE   
+
+! Test Vector 4   SHORTS,OPENS CAPTURE 
+
+SDR    364 TDI (D777777777777777777777777777777777777CDDDDD9DDDD 
+                9DDDDDDDDDDDDDDDDC00000000000DDDDDDDDDD0000)   
+           TDO (2888888888888888888888888888888888888222222A22222 
+                222222222222222200000000000022222222220000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+! Test for OPENS or STUCK LOW 
+
+! Test Vector 5   SHORTS,OPENS UPDATE   
+
+! Test Vector 5   SHORTS,OPENS CAPTURE 
+
+SDR    364 TDI (7DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD677777B7777 
+                3777777777777777740000000000077777777770000)   
+           TDO (8222222222222222222222222222222222222888888888888 
+                888888888888888880000000000088888888880000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test for OPENS or STUCK HIGH 
+
+! Test Vector 6   SHORTS UPDATE   
+
+! Test Vector 6   SHORTS CAPTURE 
+
+SDR    364 TDI (C7777777777777777777777777777777777779DDDDD9DDDD 
+                DDDDDDDDDDDDDDDDDC00000000000DDDDDDDDDD0000)   
+           TDO (2888888888888888888888888888888888888222222A22222 
+                222222222222222200000000000022222222220000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 7   SHORTS UPDATE   
+
+! Test Vector 7   SHORTS CAPTURE 
+
+SDR    364 TDI (57D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7DCF5F5F9F5F5 
+                B5F5F5F5F5F5F5F5F4000000000005F5F5F5F5F0000)   
+           TDO (8222222222222222222222222222222222222888888888888 
+                888888888888888880000000000088888888880000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 8   SHORTS UPDATE   
+
+! Test Vector 8   SHORTS CAPTURE 
+
+SDR    364 TDI (47FD57FD57FD57FD57FD57FD57FD57FD57FD51FF55FB55FF 
+                55FF55FF55FF55FF54000000000005FF55FF55F0000)   
+           TDO (02828282828282828282828282828282828288A0A0A8A0A0A 
+                0A0A0A0A0A0A0A0A0000000000000A0A0A0A0A0000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 9   SHORTS UPDATE   
+
+! Test Vector 9   SHORTS CAPTURE 
+
+SDR    364 TDI (67FFFD5557FFFD5557FFFD5557FFFD5557FFF75555FBFF55 
+                15FFFF5555FFFF555400000000000F5555FFFF50000)   
+           TDO (02A802A802A802A802A802A802A802A802A800AA00AA00AA0 
+                0AA00AA00AA00AA00000000000000AA00AA00A0000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 10   SHORTS UPDATE   
+
+! Test Vector 10   SHORTS CAPTURE 
+
+SDR    364 TDI (DD55555557FFFFFFFD55555557FFFFFFFD55585555FBFFFF 
+                FF55555555FFFFFFFC00000000000FFFFF555550000)   
+           TDO (22AAA80002AAA80002AAA80002AAA80002AAA20000AAAA000 
+                0AAAA0000AAAA000000000000000A0000AAAA00000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 11   SHORTS UPDATE   
+
+! Test Vector 11   SHORTS CAPTURE 
+
+SDR    364 TDI (FFFFFFFFFD5555555555555557FFFFFFFFFFF6FFFF595555 
+                1555555555FFFFFFFC0000000000055555555550000)   
+           TDO (8800000002AAAAAAA800000002AAAAAAA800080000AAAAAAA 
+                A00000000AAAAAAA800000000000AAAAA000000000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 12   SHORTS UPDATE   
+
+! Test Vector 12   SHORTS CAPTURE 
+
+SDR    364 TDI (75555555555555555555555557FFFFFFFFFFFEFFFFFBFFFF 
+                BFFFFFFFFF555555540000000000055555555550000)   
+           TDO (AAAAAAAAA80000000000000002AAAAAAAAAAA2AAAA0800000 
+                000000000AAAAAAA80000000000000000000000000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 13   SHORTS UPDATE   
+
+! Test Vector 13   SHORTS CAPTURE 
+
+SDR    364 TDI (DFFFFFFFFFFFFFFFFFFFFFFFFD5555555555545555595555 
+                1555555555555555540000000000055555555550000)   
+           TDO (20000000000000000000000002AAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAA000000000000000000000000000000000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 14   SHORTS UPDATE   
+
+! Test Vector 14   SHORTS CAPTURE 
+
+SDR    364 TDI (555555555555555555555555555555555555545555595555 
+                1555555555555555540000000000055555555550000)   
+           TDO (8AAAAAAAAAAAAAAAAAAAAAAAA800000000000000000800000 
+                000000000000000000000000000000000000000000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+! Run inverted binary count vector pattern to complete shorts testing.
+
+! Test Vector 15   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 15   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (7DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD677777B7777 
+                3777777777777777740000000000077777777770000)   
+           TDO (0000000000000000000000000000000000000000000800000 
+                000000000000000000000000000000000000000000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 16   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 16   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (FD7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D765F5F5B5F5F 
+                1F5F5F5F5F5F5F5F5C00000000000F5F5F5F5F50000)   
+           TDO (2888888888888888888888888888888888888222222A22222 
+                222222222222222200000000000022222222220000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 17   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 17   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (FD57FD57FD57FD57FD57FD57FD57FD57FD57FE55FF59FF55 
+                BF55FF55FF55FF55FC00000000000F55FF55FF50000)   
+           TDO (A82828282828282828282828282828282828220A0A0A0A0A0 
+                A0A0A0A0A0A0A0A0800000000000A0A0A0A0A00000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 18   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 18   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (DD5557FFFD5557FFFD5557FFFD5557FFFD555CFFFF5955FF 
+                BF5555FFFF5555FFFC000000000005FFFF5555F0000)   
+           TDO (A802A802A802A802A802A802A802A802A802AA00AA08AA00A 
+                A00AA00AA00AA00A800000000000A00AA00AA00000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 19   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 19   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (77FFFFFFFD55555557FFFFFFFD55555557FFF6FFFF595555 
+                15FFFFFFFF555555540000000000055555FFFFF0000)   
+           TDO (880002AAA80002AAA80002AAA80002AAA80008AAAA0800AAA 
+                A0000AAAA0000AAA8000000000000AAAA0000A0000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 20   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 20   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (5555555557FFFFFFFFFFFFFFFD55555555555C5555FBFFFF 
+                BFFFFFFFFF5555555400000000000FFFFFFFFFF0000)   
+           TDO (22AAAAAAA800000002AAAAAAA800000002AAA2AAAA0800000 
+                0AAAAAAAA000000000000000000000000AAAAA0000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 21   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 21   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (DFFFFFFFFFFFFFFFFFFFFFFFFD5555555555545555595555 
+                1555555555FFFFFFFC00000000000FFFFFFFFFF0000)   
+           TDO (0000000002AAAAAAAAAAAAAAA80000000000080000AAAAAAA 
+                AAAAAAAAA0000000000000000000AAAAAAAAAA0000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 22   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 22   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (75555555555555555555555557FFFFFFFFFFFEFFFFFBFFFF 
+                BFFFFFFFFFFFFFFFFC00000000000FFFFFFFFFF0000)   
+           TDO (8AAAAAAAAAAAAAAAAAAAAAAAA800000000000000000800000 
+                000000000AAAAAAA800000000000AAAAAAAAAA0000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+! Test Vector 23   SHORTS,COMPLEMENT UPDATE   
+
+! Test Vector 23   SHORTS,COMPLEMENT CAPTURE 
+
+SDR    364 TDI (FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFBFFFF 
+                BFFFFFFFFFFFFFFFFC00000000000FFFFFFFFFF0000)   
+           TDO (20000000000000000000000002AAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000)  
+           MASK (AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+                AAAAAAAAAAAAAAAAA800000000000AAAAAAAAAA0000); ! Test Data
+
+
+ STATE RESET;  !chain = A 
